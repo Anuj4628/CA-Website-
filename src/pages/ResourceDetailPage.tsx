@@ -2,15 +2,11 @@ import React, { useRef } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { 
   ArrowRight, 
-  Clock, 
   Calendar, 
   User, 
-  Tag, 
   CheckCircle2, 
-  Share2, 
   Phone,
-  MessageSquare,
-  BookOpen
+  MessageSquare
 } from 'lucide-react';
 import { resourcesData } from '../data/resourcesData';
 import { siteConfig } from '../data/siteConfig';
@@ -21,6 +17,125 @@ import { usePageEntrance } from '../utils/animation';
 interface ResourceDetailPageProps {
   onOpenConsultation: () => void;
 }
+
+interface ContentBlock {
+  type: 'h2' | 'h3' | 'p' | 'ul' | 'ol';
+  content?: string;
+  items?: string[];
+}
+
+// Inline formatting helper for **bold** text
+const renderInlineFormatting = (text: string): React.ReactNode => {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return (
+        <strong key={index} style={{ color: 'var(--color-primary)', fontWeight: 700 }}>
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
+// Robust markdown parser that handles headings, lists, and paragraphs accurately
+const parseMarkdownBlocks = (markdown: string): ContentBlock[] => {
+  const rawLines = markdown.trim().split('\n');
+  const blocks: ContentBlock[] = [];
+  
+  let currentList: { type: 'ul' | 'ol'; items: string[] } | null = null;
+  let currentParagraphLines: string[] = [];
+
+  const flushParagraph = () => {
+    if (currentParagraphLines.length > 0) {
+      blocks.push({
+        type: 'p',
+        content: currentParagraphLines.join(' ').trim()
+      });
+      currentParagraphLines = [];
+    }
+  };
+
+  const flushList = () => {
+    if (currentList && currentList.items.length > 0) {
+      blocks.push(currentList);
+      currentList = null;
+    }
+  };
+
+  for (let i = 0; i < rawLines.length; i++) {
+    const rawLine = rawLines[i];
+    const line = rawLine.trim();
+
+    if (!line) {
+      flushParagraph();
+      flushList();
+      continue;
+    }
+
+    // Heading 3: ### Title
+    if (line.startsWith('### ')) {
+      flushParagraph();
+      flushList();
+      blocks.push({
+        type: 'h3',
+        content: line.replace(/^###\s+/, '').trim()
+      });
+      continue;
+    }
+
+    // Heading 2: ## Title
+    if (line.startsWith('## ')) {
+      flushParagraph();
+      flushList();
+      blocks.push({
+        type: 'h2',
+        content: line.replace(/^##\s+/, '').trim()
+      });
+      continue;
+    }
+
+    // Unordered list item: - Item or * Item
+    if (/^[-*]\s+/.test(line)) {
+      flushParagraph();
+      if (!currentList || currentList.type !== 'ul') {
+        flushList();
+        currentList = { type: 'ul', items: [] };
+      }
+      currentList.items.push(line.replace(/^[-*]\s+/, '').trim());
+      continue;
+    }
+
+    // Ordered list item: 1. Item or 2. Item
+    if (/^\d+\.\s+/.test(line)) {
+      flushParagraph();
+      if (!currentList || currentList.type !== 'ol') {
+        flushList();
+        currentList = { type: 'ol', items: [] };
+      }
+      currentList.items.push(line.replace(/^\d+\.\s+/, '').trim());
+      continue;
+    }
+
+    // Indented list continuation
+    if (/^\s+[-*]\s+/.test(rawLine) && currentList) {
+      currentList.items.push(line.replace(/^[-*]\s+/, '').trim());
+      continue;
+    }
+
+    // Regular paragraph text line
+    if (currentList) {
+      flushList();
+    }
+    currentParagraphLines.push(line);
+  }
+
+  flushParagraph();
+  flushList();
+
+  return blocks;
+};
 
 export const ResourceDetailPage: React.FC<ResourceDetailPageProps> = ({ onOpenConsultation }) => {
   const { slug } = useParams<{ slug: string }>();
@@ -34,6 +149,7 @@ export const ResourceDetailPage: React.FC<ResourceDetailPageProps> = ({ onOpenCo
   }
 
   const relatedArticles = resourcesData.filter(a => a.slug !== article.slug).slice(0, 2);
+  const blocks = parseMarkdownBlocks(article.contentMarkdown);
 
   return (
     <div ref={containerRef} className="resource-detail-page">
@@ -43,9 +159,9 @@ export const ResourceDetailPage: React.FC<ResourceDetailPageProps> = ({ onOpenCo
         canonicalPath={`/resources/${article.slug}`}
       />
 
-      {/* Header */}
+      {/* Header Section */}
       <section className="section section-sm section-subtle">
-        <div className="container container-narrow">
+        <div className="container" style={{ maxWidth: '860px' }}>
           <Breadcrumbs 
             items={[
               { label: 'Knowledge Centre', path: '/resources' },
@@ -53,24 +169,37 @@ export const ResourceDetailPage: React.FC<ResourceDetailPageProps> = ({ onOpenCo
             ]} 
           />
 
-          <div data-animate="hero">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: 'var(--space-sm)' }}>
-              <span className="badge badge-gold">{article.category}</span>
-              <span style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)' }}>
+          <div data-animate="hero" style={{ marginTop: 'var(--space-sm)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: 'var(--space-sm)', flexWrap: 'wrap' }}>
+              <span className="badge badge-green">{article.category}</span>
+              <span style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', fontWeight: 500 }}>
                 {article.readingTime}
               </span>
             </div>
 
-            <h1 style={{ fontSize: '2.25rem', lineHeight: 1.25, marginBottom: 'var(--space-md)' }}>
+            <h1 style={{ fontSize: '2.25rem', lineHeight: 1.25, marginBottom: 'var(--space-md)', color: 'var(--color-primary)' }}>
               {article.title}
             </h1>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-lg)', flexWrap: 'wrap', fontSize: '0.875rem', color: 'var(--color-text-muted)', borderTop: '1px solid var(--color-border)', paddingTop: '12px' }}>
+            <p style={{ fontSize: '1.0625rem', color: 'var(--color-text-body)', lineHeight: 1.65, marginBottom: 'var(--space-lg)' }}>
+              {article.summary}
+            </p>
+
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: 'var(--space-lg)', 
+              flexWrap: 'wrap', 
+              fontSize: '0.875rem', 
+              color: 'var(--color-text-muted)', 
+              borderTop: '1px solid var(--color-border-green)', 
+              paddingTop: '14px' 
+            }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                <User size={14} /> Author: {article.author}
+                <User size={14} style={{ color: 'var(--color-accent-green)' }} /> Author: <strong>{article.author}</strong>
               </span>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                <Calendar size={14} /> Updated: {article.lastUpdated}
+                <Calendar size={14} style={{ color: 'var(--color-accent-green)' }} /> Updated: {article.lastUpdated}
               </span>
             </div>
           </div>
@@ -78,74 +207,142 @@ export const ResourceDetailPage: React.FC<ResourceDetailPageProps> = ({ onOpenCo
       </section>
 
       {/* Main Content */}
-      <section className="section">
-        <div className="container container-narrow">
+      <section className="section" style={{ backgroundColor: '#FFFFFF', paddingTop: 'var(--space-3xl)', paddingBottom: 'var(--space-4xl)' }}>
+        <div className="container" style={{ maxWidth: '860px' }}>
+          
           {/* Key Takeaways Card */}
           <div 
             style={{
-              backgroundColor: 'var(--color-primary-soft)',
-              border: '1px solid rgba(3, 36, 71, 0.15)',
+              backgroundColor: 'var(--color-accent-green-pale)',
+              border: '1px solid var(--color-border-green)',
+              borderLeft: '4px solid var(--color-accent-green)',
               borderRadius: 'var(--radius-lg)',
-              padding: 'var(--space-xl)',
-              marginBottom: 'var(--space-2xl)'
+              padding: '24px 28px',
+              marginBottom: '36px',
+              boxShadow: 'var(--shadow-sm)'
             }}
           >
-            <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', color: 'var(--color-primary)', marginBottom: 'var(--space-sm)' }}>
-              Executive Summary & Key Takeaways:
+            <div style={{ 
+              fontFamily: 'var(--font-heading)', 
+              fontWeight: 700, 
+              fontSize: '1.05rem', 
+              color: 'var(--color-primary)', 
+              marginBottom: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}>
+              <CheckCircle2 size={18} style={{ color: 'var(--color-accent-green)' }} />
+              <span>Executive Summary & Key Takeaways:</span>
             </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', padding: 0, margin: 0 }}>
               {article.keyTakeaways.map((takeaway, idx) => (
                 <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--color-primary)', marginTop: '3px', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.9375rem', color: 'var(--color-text-main)', lineHeight: 1.5 }}>
-                    {takeaway}
+                  <span style={{ color: 'var(--color-accent-green)', fontWeight: 700, lineHeight: 1.5, userSelect: 'none' }}>•</span>
+                  <span style={{ fontSize: '0.9375rem', color: 'var(--color-text-body)', lineHeight: 1.6 }}>
+                    {renderInlineFormatting(takeaway)}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Article Markdown Render */}
-          <div 
-            className="article-body"
-            style={{ 
-              fontSize: '1.0625rem', 
-              lineHeight: 1.8, 
-              color: 'var(--color-text-body)' 
-            }}
-          >
-            {article.contentMarkdown.split('\n\n').map((paragraph, idx) => {
-              const trimmed = paragraph.trim();
-              if (trimmed.startsWith('### ')) {
+          {/* Article Formatted Body */}
+          <div className="article-body">
+            {blocks.map((block, idx) => {
+              if (block.type === 'h3') {
                 return (
-                  <h3 key={idx} style={{ marginTop: 'var(--space-xl)', marginBottom: 'var(--space-md)', fontSize: '1.5rem', color: 'var(--color-primary)' }}>
-                    {trimmed.replace('### ', '')}
+                  <h3 
+                    key={idx} 
+                    style={{ 
+                      marginTop: '36px', 
+                      marginBottom: '14px', 
+                      fontSize: '1.35rem', 
+                      lineHeight: 1.35,
+                      color: 'var(--color-primary)',
+                      fontWeight: 700,
+                      borderBottom: '2px solid var(--color-accent-green-pale)',
+                      paddingBottom: '8px'
+                    }}
+                  >
+                    {renderInlineFormatting(block.content || '')}
                   </h3>
                 );
               }
-              if (trimmed.startsWith('- ')) {
-                const listItems = trimmed.split('\n').map(l => l.replace(/^- /, ''));
+              if (block.type === 'h2') {
                 return (
-                  <ul key={idx} style={{ marginLeft: 'var(--space-lg)', marginBottom: 'var(--space-lg)', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    {listItems.map((li, i) => (
-                      <li key={i}>{li}</li>
+                  <h2 
+                    key={idx} 
+                    style={{ 
+                      marginTop: '44px', 
+                      marginBottom: '16px', 
+                      fontSize: '1.65rem', 
+                      lineHeight: 1.3,
+                      color: 'var(--color-primary)',
+                      fontWeight: 700
+                    }}
+                  >
+                    {renderInlineFormatting(block.content || '')}
+                  </h2>
+                );
+              }
+              if (block.type === 'ul') {
+                return (
+                  <ul 
+                    key={idx} 
+                    style={{ 
+                      margin: '0 0 20px 0', 
+                      paddingLeft: '22px', 
+                      display: 'flex', 
+                      flexDirection: 'column', 
+                      gap: '8px',
+                      fontSize: '1.05rem',
+                      lineHeight: 1.7,
+                      color: 'var(--color-text-body)'
+                    }}
+                  >
+                    {block.items?.map((item, itemIdx) => (
+                      <li key={itemIdx} style={{ paddingLeft: '4px' }}>
+                        {renderInlineFormatting(item)}
+                      </li>
                     ))}
                   </ul>
                 );
               }
-              if (trimmed.startsWith('1. ') || trimmed.startsWith('2. ')) {
-                const listItems = trimmed.split('\n');
+              if (block.type === 'ol') {
                 return (
-                  <ol key={idx} style={{ marginLeft: 'var(--space-lg)', marginBottom: 'var(--space-lg)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    {listItems.map((li, i) => (
-                      <li key={i}>{li.replace(/^\d+\.\s*/, '')}</li>
+                  <ol 
+                    key={idx} 
+                    style={{ 
+                      margin: '0 0 20px 0', 
+                      paddingLeft: '24px', 
+                      display: 'flex', 
+                      flexDirection: 'column', 
+                      gap: '8px',
+                      fontSize: '1.05rem',
+                      lineHeight: 1.7,
+                      color: 'var(--color-text-body)'
+                    }}
+                  >
+                    {block.items?.map((item, itemIdx) => (
+                      <li key={itemIdx} style={{ paddingLeft: '4px' }}>
+                        {renderInlineFormatting(item)}
+                      </li>
                     ))}
                   </ol>
                 );
               }
               return (
-                <p key={idx} style={{ marginBottom: 'var(--space-lg)' }}>
-                  {trimmed}
+                <p 
+                  key={idx} 
+                  style={{ 
+                    fontSize: '1.0625rem', 
+                    lineHeight: 1.8, 
+                    color: 'var(--color-text-body)', 
+                    marginBottom: '18px' 
+                  }}
+                >
+                  {renderInlineFormatting(block.content || '')}
                 </p>
               );
             })}
@@ -154,27 +351,35 @@ export const ResourceDetailPage: React.FC<ResourceDetailPageProps> = ({ onOpenCo
           {/* Author Card */}
           <div 
             style={{
-              marginTop: 'var(--space-3xl)',
-              padding: 'var(--space-xl)',
-              backgroundColor: 'var(--color-bg-subtle)',
+              marginTop: '48px',
+              padding: '24px',
+              backgroundColor: '#F8FAFC',
               border: '1px solid var(--color-border)',
               borderRadius: 'var(--radius-lg)',
               display: 'flex',
-              gap: 'var(--space-lg)',
+              gap: '20px',
               alignItems: 'center'
             }}
           >
             <img 
-              src={siteConfig.consultant.headshotUrl} 
+              src={siteConfig.consultant.aboutPhotoUrl} 
               alt={article.author}
-              style={{ width: '64px', height: '64px', borderRadius: 'var(--radius-md)', objectFit: 'cover', border: '2px solid var(--color-accent-gold)' }}
+              style={{ 
+                width: '72px', 
+                height: '72px', 
+                borderRadius: 'var(--radius-md)', 
+                objectFit: 'cover', 
+                objectPosition: 'center top',
+                border: '2px solid var(--color-accent-green)',
+                flexShrink: 0
+              }}
             />
             <div>
-              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', color: 'var(--color-primary)' }}>
+              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.05rem', color: 'var(--color-primary)' }}>
                 About the Author: {article.author}
               </div>
-              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', margin: 0, marginTop: '4px' }}>
-                Senior tax consultant and founder at Ambika Consultancy, Modi Street, Fort, Mumbai. Over two decades of expertise in direct & indirect taxes.
+              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-body)', margin: '4px 0 0 0', lineHeight: 1.6 }}>
+                {siteConfig.consultant.title} & Founder of {siteConfig.firmName}, Modi Street, Fort, Mumbai. Over two decades of specialized expertise in direct & indirect taxes.
               </p>
             </div>
           </div>
@@ -182,27 +387,29 @@ export const ResourceDetailPage: React.FC<ResourceDetailPageProps> = ({ onOpenCo
           {/* Consultation CTA */}
           <div 
             style={{
-              marginTop: 'var(--space-2xl)',
-              padding: 'var(--space-2xl)',
+              marginTop: '36px',
+              padding: '36px 32px',
               backgroundColor: 'var(--color-primary)',
               color: '#FFFFFF',
               borderRadius: 'var(--radius-xl)',
-              textAlign: 'center'
+              textAlign: 'center',
+              boxShadow: 'var(--shadow-hover)'
             }}
           >
             <h3 style={{ color: '#FFFFFF', fontSize: '1.5rem', marginBottom: '8px' }}>
               Have Questions Regarding This Topic?
             </h3>
-            <p style={{ color: '#CBD5E1', fontSize: '0.9375rem', maxWidth: '520px', margin: '0 auto var(--space-lg) auto' }}>
-              Consult Dinesh H. Maurya directly to evaluate how these provisions apply to your personal returns or business accounts.
+            <p style={{ color: '#E2E8F0', fontSize: '0.95rem', maxWidth: '540px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
+              Consult Dinesh H. Maurya directly to evaluate how these tax and compliance provisions apply to your personal returns or business accounts.
             </p>
-            <div style={{ display: 'flex', gap: 'var(--space-md)', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button 
                 type="button" 
                 onClick={onOpenConsultation}
-                className="btn btn-gold"
+                className="btn btn-primary"
+                style={{ backgroundColor: 'var(--color-accent-green)', borderColor: 'var(--color-accent-green)' }}
               >
-                <span>Request Case Review</span>
+                <span>Request Consultation</span>
                 <ArrowRight size={16} />
               </button>
               <a 
@@ -214,6 +421,14 @@ export const ResourceDetailPage: React.FC<ResourceDetailPageProps> = ({ onOpenCo
                 <MessageSquare size={16} />
                 <span>Ask on WhatsApp</span>
               </a>
+              <a 
+                href={`tel:${siteConfig.contact.primaryPhoneRaw}`}
+                className="btn btn-secondary"
+                style={{ color: '#FFFFFF', borderColor: 'rgba(255, 255, 255, 0.4)' }}
+              >
+                <Phone size={15} />
+                <span>Call: {siteConfig.contact.primaryPhone}</span>
+              </a>
             </div>
           </div>
         </div>
@@ -222,23 +437,36 @@ export const ResourceDetailPage: React.FC<ResourceDetailPageProps> = ({ onOpenCo
       {/* Related Articles */}
       {relatedArticles.length > 0 && (
         <section className="section section-sm section-subtle">
-          <div className="container container-narrow">
-            <h3 style={{ fontSize: '1.25rem', marginBottom: 'var(--space-md)' }}>
-              Related Guides:
+          <div className="container" style={{ maxWidth: '860px' }}>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: 'var(--space-md)', color: 'var(--color-primary)' }}>
+              Related Guides & Insights:
             </h3>
             <div className="grid-2">
               {relatedArticles.map((rel) => (
-                <div key={rel.slug} className="card" style={{ backgroundColor: '#FFFFFF' }}>
-                  <span className="badge badge-gold" style={{ alignSelf: 'flex-start', marginBottom: '6px' }}>{rel.category}</span>
-                  <h4 style={{ fontSize: '1.0625rem', marginBottom: '6px' }}>
-                    <Link to={`/resources/${rel.slug}`} style={{ color: 'inherit' }}>
+                <div key={rel.slug} className="card card-pale-green" style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span className="badge badge-green" style={{ alignSelf: 'flex-start', marginBottom: '8px' }}>
+                    {rel.category}
+                  </span>
+                  <h4 style={{ fontSize: '1.0625rem', marginBottom: '8px', lineHeight: 1.4 }}>
+                    <Link to={`/resources/${rel.slug}`} style={{ color: 'var(--color-primary)' }}>
                       {rel.title}
                     </Link>
                   </h4>
-                  <p style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', marginBottom: 'var(--space-md)' }}>
-                    {rel.summary.substring(0, 95)}...
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--color-text-body)', marginBottom: 'var(--space-md)', flex: 1, lineHeight: 1.6 }}>
+                    {rel.summary.substring(0, 110)}...
                   </p>
-                  <Link to={`/resources/${rel.slug}`} style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-primary)', marginTop: 'auto', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <Link 
+                    to={`/resources/${rel.slug}`} 
+                    style={{ 
+                      fontSize: '0.8125rem', 
+                      fontWeight: 600, 
+                      color: 'var(--color-accent-green-dark)', 
+                      marginTop: 'auto', 
+                      display: 'inline-flex', 
+                      alignItems: 'center', 
+                      gap: '4px' 
+                    }}
+                  >
                     <span>Read Article</span>
                     <ArrowRight size={13} />
                   </Link>
@@ -251,3 +479,5 @@ export const ResourceDetailPage: React.FC<ResourceDetailPageProps> = ({ onOpenCo
     </div>
   );
 };
+
+export default ResourceDetailPage;
