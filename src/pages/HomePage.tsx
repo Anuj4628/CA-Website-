@@ -108,7 +108,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
                   <ArrowRight size={16} />
                 </button>
 
-                <Link to="/services" className="btn btn-secondary btn-lg">
+                <Link to="/services-chartered-accountant-mumbai" className="btn btn-secondary btn-lg">
                   Explore Services
                 </Link>
               </div>
@@ -264,7 +264,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
 
                     <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.25)', paddingTop: '14px', marginTop: 'auto' }}>
                       <Link 
-                        to={`/services/${category.slug}`}
+                        to={`/${category.slug}`}
                         style={{ 
                           fontSize: '0.875rem', 
                           fontWeight: 600, 
@@ -328,7 +328,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
 
                   <div style={{ borderTop: '1px solid var(--color-border-green)', paddingTop: '14px', marginTop: 'auto' }}>
                     <Link 
-                      to={`/services/${category.slug}`}
+                      to={`/${category.slug}`}
                       style={{ 
                         fontSize: '0.875rem', 
                         fontWeight: 600, 
@@ -348,7 +348,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-2xl)' }}>
-            <Link to="/services" className="btn btn-secondary">
+            <Link to="/services-chartered-accountant-mumbai" className="btn btn-secondary">
               <span>View All Practice Areas</span>
               <ArrowRight size={15} />
             </Link>
@@ -435,7 +435,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
               </div>
 
               <div style={{ display: 'flex', gap: 'var(--space-md)', flexWrap: 'wrap' }}>
-                <Link to="/about-us" className="btn btn-primary">
+                <Link to="/about-best-chartered-accountant-mumbai" className="btn btn-primary">
                   <span>About Our Practice</span>
                   <ArrowRight size={15} />
                 </Link>
@@ -451,10 +451,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
 
             {/* Right Column: Single Principal Consultant Office Photograph */}
             <div className="consultant-single-photo-wrap">
-              <div className="consultant-single-card">
+              <div className="consultant-single-card consultant-home-card">
                 <div className="consultant-single-img-holder">
                   <img 
-                    src={siteConfig.consultant.deskPhotoUrl} 
+                    src={siteConfig.consultant.homePhotoUrl} 
                     alt="Dinesh H. Maurya at work at Fort Office, Mumbai"
                     className="consultant-single-img"
                     width="771"

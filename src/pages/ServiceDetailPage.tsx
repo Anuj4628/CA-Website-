@@ -28,11 +28,11 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ onOpenCons
   const containerRef = useRef<HTMLDivElement>(null);
   usePageEntrance(containerRef);
 
-  const category = servicesData.find((c) => c.slug === categorySlug);
-  const subService = category?.subServices.find((s) => s.slug === serviceSlug);
+  const category = servicesData.find((c) => c.slug === categorySlug || c.id === categorySlug);
+  const subService = category?.subServices.find((s) => s.slug === serviceSlug || s.id === serviceSlug);
 
   if (!category || !subService) {
-    return <Navigate to={category ? `/services/${category.slug}` : '/services'} replace />;
+    return <Navigate to={category ? `/${category.slug}` : '/services-chartered-accountant-mumbai'} replace />;
   }
 
   // Find related sub-services
@@ -43,7 +43,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ onOpenCons
       <SEOHead 
         title={subService.metaTitle}
         description={subService.metaDescription}
-        canonicalPath={`/services/${category.slug}/${subService.slug}`}
+        canonicalPath={`/${category.slug}/${subService.slug}`}
       />
 
       {/* Hero Section */}
@@ -51,8 +51,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ onOpenCons
         <div className="container">
           <Breadcrumbs 
             items={[
-              { label: 'Services', path: '/services' },
-              { label: category.shortTitle, path: `/services/${category.slug}` },
+              { label: 'Services', path: '/services-chartered-accountant-mumbai' },
+              { label: category.shortTitle, path: `/${category.slug}` },
               { label: subService.title }
             ]} 
           />
@@ -341,7 +341,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ onOpenCons
                 {relatedServices.map(rel => (
                   <Link 
                     key={rel.id} 
-                    to={`/services/${category.slug}/${rel.slug}`}
+                    to={`/${category.slug}/${rel.slug}`}
                     className="card"
                     style={{ padding: '12px 16px', minWidth: '220px', textDecoration: 'none' }}
                   >

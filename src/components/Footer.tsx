@@ -74,10 +74,10 @@ export const Footer: React.FC = () => {
                   <Link to="/"><ChevronRight size={14} /> Home</Link>
                 </li>
                 <li className="footer-nav-item">
-                  <Link to="/about-us"><ChevronRight size={14} /> About Dinesh H. Maurya</Link>
+                  <Link to="/about-best-chartered-accountant-mumbai"><ChevronRight size={14} /> About Dinesh H. Maurya</Link>
                 </li>
                 <li className="footer-nav-item">
-                  <Link to="/services"><ChevronRight size={14} /> All Services Directory</Link>
+                  <Link to="/services-chartered-accountant-mumbai"><ChevronRight size={14} /> All Services Directory</Link>
                 </li>
                 <li className="footer-nav-item">
                   <Link to="/compliance-packages"><ChevronRight size={14} /> Compliance Packages</Link>
@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
                   <Link to="/chartered-accountant-mumbai"><ChevronRight size={14} /> CA Fort & Mumbai Presence</Link>
                 </li>
                 <li className="footer-nav-item">
-                  <Link to="/contact-us"><ChevronRight size={14} /> Contact & Directions</Link>
+                  <Link to="/contact-chartered-accountant-mumbai"><ChevronRight size={14} /> Contact & Directions</Link>
                 </li>
               </ul>
             </div>
@@ -103,23 +103,23 @@ export const Footer: React.FC = () => {
               <ul className="footer-nav-list">
                 {servicesData.map((category) => (
                   <li key={category.id} className="footer-nav-item">
-                    <Link to={`/services/${category.slug}`}>
+                    <Link to={`/${category.slug}`}>
                       <ChevronRight size={14} /> {category.shortTitle}
                     </Link>
                   </li>
                 ))}
                 <li className="footer-nav-item">
-                  <Link to="/services/income-tax/income-tax-return-filing">
+                  <Link to="/income-tax-return-filing-mumbai/income-tax-return-filing">
                     <ChevronRight size={14} /> ITR Filing (Salary & Business)
                   </Link>
                 </li>
                 <li className="footer-nav-item">
-                  <Link to="/services/gst/gst-return-filing">
+                  <Link to="/gst-consultant-mumbai/gst-return-filing">
                     <ChevronRight size={14} /> GST Monthly Filings & 2B
                   </Link>
                 </li>
                 <li className="footer-nav-item">
-                  <Link to="/services/company-registration-compliance/company-incorporation">
+                  <Link to="/company-registration-mumbai/company-incorporation">
                     <ChevronRight size={14} /> Pvt Ltd & LLP Registration
                   </Link>
                 </li>

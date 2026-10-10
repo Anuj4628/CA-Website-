@@ -7,14 +7,19 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/about-us</loc>
+    <loc>https://ambikaconsultancy.com/about-best-chartered-accountant-mumbai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services</loc>
+    <loc>https://ambikaconsultancy.com/services-chartered-accountant-mumbai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ambikaconsultancy.com/contact-chartered-accountant-mumbai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ambikaconsultancy.com/consultation</loc>
@@ -36,180 +41,148 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://ambikaconsultancy.com/contact-us</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
   <!-- Service Categories -->
   <url>
-    <loc>https://ambikaconsultancy.com/services/income-tax</loc>
+    <loc>https://ambikaconsultancy.com/income-tax-return-filing-mumbai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/income-tax/income-tax-return-filing</loc>
+    <loc>https://ambikaconsultancy.com/income-tax-return-filing-mumbai/income-tax-return-filing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/income-tax/capital-gains-tax</loc>
+    <loc>https://ambikaconsultancy.com/income-tax-return-filing-mumbai/capital-gains-tax</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/income-tax/tax-notice-assistance</loc>
+    <loc>https://ambikaconsultancy.com/income-tax-return-filing-mumbai/tax-notice-assistance</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/income-tax/itr-revision-and-rectification</loc>
+    <loc>https://ambikaconsultancy.com/income-tax-return-filing-mumbai/itr-revision-and-rectification</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ambikaconsultancy.com/services/gst</loc>
+    <loc>https://ambikaconsultancy.com/gst-consultant-mumbai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/gst/gst-registration</loc>
+    <loc>https://ambikaconsultancy.com/gst-consultant-mumbai/gst-registration</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/gst/gst-return-filing</loc>
+    <loc>https://ambikaconsultancy.com/gst-consultant-mumbai/gst-return-filing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/gst/gst-reconciliation</loc>
+    <loc>https://ambikaconsultancy.com/gst-consultant-mumbai/gst-reconciliation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/gst/gst-notice-assistance</loc>
+    <loc>https://ambikaconsultancy.com/gst-consultant-mumbai/gst-notice-assistance</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/gst/gst-refund-assistance</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://ambikaconsultancy.com/services/accounting-audit</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ambikaconsultancy.com/services/accounting-audit/bookkeeping</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ambikaconsultancy.com/services/accounting-audit/financial-statements</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ambikaconsultancy.com/services/accounting-audit/audit-services</loc>
+    <loc>https://ambikaconsultancy.com/gst-consultant-mumbai/gst-refund-assistance</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ambikaconsultancy.com/services/tds-tcs</loc>
+    <loc>https://ambikaconsultancy.com/accounting-bookkeeping-audit-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ambikaconsultancy.com/accounting-bookkeeping-audit-services/bookkeeping</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/tds-tcs/tds-return-filing</loc>
+    <loc>https://ambikaconsultancy.com/accounting-bookkeeping-audit-services/financial-statements</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/services/tds-tcs/tds-correction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ambikaconsultancy.com/services/tds-tcs/tan-registration</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://ambikaconsultancy.com/services/company-registration-compliance</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ambikaconsultancy.com/services/company-registration-compliance/company-incorporation</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ambikaconsultancy.com/services/company-registration-compliance/llp-registration</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ambikaconsultancy.com/services/company-registration-compliance/roc-annual-filings</loc>
+    <loc>https://ambikaconsultancy.com/accounting-bookkeeping-audit-services/audit-services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ambikaconsultancy.com/services/business-registrations</loc>
+    <loc>https://ambikaconsultancy.com/tds-tcs-return-filing-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ambikaconsultancy.com/tds-tcs-return-filing-mumbai/tds-return-filing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ambikaconsultancy.com/tds-tcs-return-filing-mumbai/tds-correction</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ambikaconsultancy.com/tds-tcs-return-filing-mumbai/tan-registration</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Resource Articles -->
   <url>
-    <loc>https://ambikaconsultancy.com/resources/new-vs-old-tax-regime-guide</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://ambikaconsultancy.com/company-registration-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/resources/gst-2b-reconciliation-preventing-itc-loss</loc>
+    <loc>https://ambikaconsultancy.com/company-registration-mumbai/company-incorporation</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/resources/capital-gains-tax-property-shares-mumbai</loc>
+    <loc>https://ambikaconsultancy.com/company-registration-mumbai/llp-registration</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ambikaconsultancy.com/resources/annual-roc-compliance-checklist-pvt-ltd</loc>
+    <loc>https://ambikaconsultancy.com/company-registration-mumbai/roc-annual-filings</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ambikaconsultancy.com/resources/tds-rates-and-compliance-rules-for-businesses</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Legal Pages -->
+  <url>
+    <loc>https://ambikaconsultancy.com/business-registration-licensing-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Legal & Compliance Pages -->
   <url>
     <loc>https://ambikaconsultancy.com/privacy-policy</loc>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://ambikaconsultancy.com/terms-and-conditions</loc>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://ambikaconsultancy.com/disclaimer</loc>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 </urlset>

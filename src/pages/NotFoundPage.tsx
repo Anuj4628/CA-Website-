@@ -41,12 +41,12 @@ export const NotFoundPage: React.FC = () => {
               <span>Back to Homepage</span>
             </Link>
 
-            <Link to="/services" className="btn btn-secondary">
+            <Link to="/services-chartered-accountant-mumbai" className="btn btn-secondary">
               <span>View All Services</span>
               <ArrowRight size={16} />
             </Link>
 
-            <Link to="/contact-us" className="btn btn-secondary">
+            <Link to="/contact-chartered-accountant-mumbai" className="btn btn-secondary">
               <Phone size={16} />
               <span>Contact Fort Office</span>
             </Link>

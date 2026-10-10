@@ -230,7 +230,7 @@ export const MumbaiCaPage: React.FC<MumbaiCaPageProps> = ({ onOpenConsultation }
               >
                 Schedule Consultation
               </button>
-              <Link to="/contact-us" className="btn btn-outline-white">
+              <Link to="/contact-chartered-accountant-mumbai" className="btn btn-outline-white">
                 View Contact Info & Maps
               </Link>
             </div>

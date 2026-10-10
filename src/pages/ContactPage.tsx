@@ -21,9 +21,9 @@ export const ContactPage: React.FC = () => {
   return (
     <div ref={containerRef} className="contact-page">
       <SEOHead 
-        title="Contact & Consultation | Ambika Consultancy Fort & Belapur, Mumbai"
+        title="Contact Chartered Accountant & Tax Advisory | Ambika Consultancy Mumbai"
         description="Schedule a consultation with Dinesh H. Maurya at Ambika Consultancy. Offices in Fort, South Mumbai & CBD Belapur, Navi Mumbai. Phone: +91 93213 34335, 022-4002 1960."
-        canonicalPath="/contact-us"
+        canonicalPath="/contact-chartered-accountant-mumbai"
       />
 
       {/* Hero */}

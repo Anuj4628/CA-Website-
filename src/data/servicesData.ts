@@ -36,7 +36,7 @@ export interface ServiceCategory {
 export const servicesData: ServiceCategory[] = [
   {
     id: 'income-tax',
-    slug: 'income-tax',
+    slug: 'income-tax-return-filing-mumbai',
     title: 'Income Tax Advisory & Return Filing',
     shortTitle: 'Income Tax',
     tagline: 'Precision tax computation, compliance, and dispute resolution for individuals and businesses.',
@@ -206,7 +206,7 @@ export const servicesData: ServiceCategory[] = [
   },
   {
     id: 'gst',
-    slug: 'gst',
+    slug: 'gst-consultant-mumbai',
     title: 'Goods & Services Tax (GST) Services',
     shortTitle: 'GST Services',
     tagline: 'End-to-end GST registration, monthly return filing, 2B reconciliation, and notice resolution.',
@@ -401,7 +401,7 @@ export const servicesData: ServiceCategory[] = [
   },
   {
     id: 'accounting-audit',
-    slug: 'accounting-audit',
+    slug: 'accounting-bookkeeping-audit-services',
     title: 'Accounting, Bookkeeping & Audit Services',
     shortTitle: 'Accounting & Audit',
     tagline: 'Meticulous financial record-keeping, balance sheet preparation, and statutory audit readiness.',
@@ -537,7 +537,7 @@ export const servicesData: ServiceCategory[] = [
   },
   {
     id: 'tds-tcs',
-    slug: 'tds-tcs',
+    slug: 'tds-tcs-return-filing-mumbai',
     title: 'TDS & TCS Advisory & Return Filing',
     shortTitle: 'TDS & TCS',
     tagline: 'End-to-end withholding tax compliance, TAN registration, quarterly returns, and correction statements.',
@@ -672,7 +672,7 @@ export const servicesData: ServiceCategory[] = [
   },
   {
     id: 'company-registration-compliance',
-    slug: 'company-registration-compliance',
+    slug: 'company-registration-mumbai',
     title: 'Company Registration & Corporate Compliance',
     shortTitle: 'Corporate Compliance',
     tagline: 'Smooth entity incorporation, MCA/ROC secretarial filings, and annual director compliances.',
@@ -808,7 +808,7 @@ export const servicesData: ServiceCategory[] = [
   },
   {
     id: 'business-registrations',
-    slug: 'business-registrations',
+    slug: 'business-registration-licensing-mumbai',
     title: 'Business Registrations, Licensing & Advisory',
     shortTitle: 'Business Registrations',
     tagline: 'MSME/Udyam certificates, Shop & Establishment Gumasta, PAN/TAN, and financial advisory.',

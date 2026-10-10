@@ -28,7 +28,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenConsultation }) => {
       <SEOHead 
         title="About Dinesh H. Maurya & Ambika Consultancy | Fort, Mumbai"
         description="Learn about Dinesh H. Maurya and Ambika Consultancy. Professional tax, GST, and corporate accounting services based in Fort, Mumbai and CBD Belapur."
-        canonicalPath="/about-us"
+        canonicalPath="/about-best-chartered-accountant-mumbai"
       />
 
       {/* Page Header */}
@@ -104,10 +104,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenConsultation }) => {
 
             {/* Right Column: Single Principal Consultant Office Photograph */}
             <div className="consultant-single-photo-wrap">
-              <div className="consultant-single-card">
+              <div className="consultant-single-card consultant-about-card">
                 <div className="consultant-single-img-holder">
                   <img 
-                    src={siteConfig.consultant.deskPhotoUrl} 
+                    src={siteConfig.consultant.aboutPhotoUrl} 
                     alt="Dinesh H. Maurya at work at Fort Office, Mumbai"
                     className="consultant-single-img"
                     width="771"
@@ -296,7 +296,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenConsultation }) => {
                 <span>Book a Consultation</span>
                 <ArrowRight size={15} />
               </button>
-              <Link to="/contact-us" className="btn btn-outline-white">
+              <Link to="/contact-chartered-accountant-mumbai" className="btn btn-outline-white">
                 Contact Our Offices
               </Link>
             </div>

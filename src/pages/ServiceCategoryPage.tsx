@@ -19,17 +19,19 @@ import { usePageEntrance } from '../utils/animation';
 
 interface ServiceCategoryPageProps {
   onOpenConsultation: () => void;
+  fixedCategorySlug?: string;
 }
 
-export const ServiceCategoryPage: React.FC<ServiceCategoryPageProps> = ({ onOpenConsultation }) => {
-  const { categorySlug } = useParams<{ categorySlug: string }>();
+export const ServiceCategoryPage: React.FC<ServiceCategoryPageProps> = ({ onOpenConsultation, fixedCategorySlug }) => {
+  const { categorySlug: paramSlug } = useParams<{ categorySlug: string }>();
+  const effectiveSlug = fixedCategorySlug || paramSlug;
   const containerRef = useRef<HTMLDivElement>(null);
   usePageEntrance(containerRef);
 
-  const category = servicesData.find((c) => c.slug === categorySlug);
+  const category = servicesData.find((c) => c.slug === effectiveSlug || c.id === effectiveSlug);
 
   if (!category) {
-    return <Navigate to="/services" replace />;
+    return <Navigate to="/services-chartered-accountant-mumbai" replace />;
   }
 
   return (
@@ -37,7 +39,7 @@ export const ServiceCategoryPage: React.FC<ServiceCategoryPageProps> = ({ onOpen
       <SEOHead 
         title={category.metaTitle}
         description={category.metaDescription}
-        canonicalPath={`/services/${category.slug}`}
+        canonicalPath={`/${category.slug}`}
       />
 
       {/* Hero Section */}
@@ -45,7 +47,7 @@ export const ServiceCategoryPage: React.FC<ServiceCategoryPageProps> = ({ onOpen
         <div className="container">
           <Breadcrumbs 
             items={[
-              { label: 'Services', path: '/services' },
+              { label: 'Services', path: '/services-chartered-accountant-mumbai' },
               { label: category.shortTitle }
             ]} 
           />
@@ -95,7 +97,7 @@ export const ServiceCategoryPage: React.FC<ServiceCategoryPageProps> = ({ onOpen
               {category.subServices.map((sub) => (
                 <div key={sub.id} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
                   <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>
-                    <Link to={`/services/${category.slug}/${sub.slug}`} style={{ color: 'inherit' }}>
+                    <Link to={`/${category.slug}/${sub.slug}`} style={{ color: 'inherit' }}>
                       {sub.title}
                     </Link>
                   </h3>
@@ -106,7 +108,7 @@ export const ServiceCategoryPage: React.FC<ServiceCategoryPageProps> = ({ onOpen
 
                   <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: '14px', marginTop: 'auto' }}>
                     <Link 
-                      to={`/services/${category.slug}/${sub.slug}`}
+                      to={`/${category.slug}/${sub.slug}`}
                       className="btn btn-secondary btn-sm"
                       style={{ width: '100%', justifyContent: 'space-between' }}
                     >
@@ -328,7 +330,7 @@ export const ServiceCategoryPage: React.FC<ServiceCategoryPageProps> = ({ onOpen
               {servicesData.filter(c => c.id !== category.id).map(other => (
                 <Link 
                   key={other.id} 
-                  to={`/services/${other.slug}`}
+                  to={`/${other.slug}`}
                   className="badge badge-navy"
                   style={{ textDecoration: 'none', padding: '6px 12px' }}
                 >

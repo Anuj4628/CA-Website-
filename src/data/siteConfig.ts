@@ -21,10 +21,34 @@ export const siteConfig = {
     title: 'Senior Tax Consultant & Financial Advisor',
     designation: 'Founder & Principal Consultant',
     experienceSummary: 'Over two decades of hands-on expertise in direct and indirect taxation, sales tax/GST, statutory filings, and business accounting.',
+    // Independent consultant images for Home and About pages
+    homePhotoUrl: '/assets/dinesh-maurya-home-desk.jpg',
+    aboutPhotoUrl: '/assets/dinesh-maurya-portrait.jpg',
     portraitUrl: '/assets/dinesh-maurya-portrait.jpg',
     headshotUrl: '/assets/dinesh-maurya-headshot.jpg',
     officePhotoUrl: '/assets/dinesh-maurya-office.jpg',
-    deskPhotoUrl: '/assets/dinesh-maurya-desk.jpg',
+    deskPhotoUrl: '/assets/dinesh-maurya-home-desk.jpg',
+  },
+
+  // Centralized SEO-friendly URLs
+  routes: {
+    home: '/',
+    about: '/about-best-chartered-accountant-mumbai',
+    services: '/services-chartered-accountant-mumbai',
+    incomeTax: '/income-tax-return-filing-mumbai',
+    gst: '/gst-consultant-mumbai',
+    accounting: '/accounting-bookkeeping-audit-services',
+    tdsTcs: '/tds-tcs-return-filing-mumbai',
+    companyRegistration: '/company-registration-mumbai',
+    businessRegistrations: '/business-registration-licensing-mumbai',
+    contact: '/contact-chartered-accountant-mumbai',
+    packages: '/compliance-packages',
+    resources: '/resources',
+    mumbaiCa: '/chartered-accountant-mumbai',
+    consultation: '/consultation',
+    privacyPolicy: '/privacy-policy',
+    terms: '/terms-and-conditions',
+    disclaimer: '/disclaimer',
   },
 
   // Confirmed Contact Details

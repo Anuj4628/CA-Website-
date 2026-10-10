@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               <span>{siteConfig.contact.primaryEmail}</span>
             </a>
             <Link 
-              to="/contact" 
+              to="/contact-chartered-accountant-mumbai" 
               className="top-bar-badge"
               title="View Fort & Belapur Office Locations"
             >
@@ -127,8 +127,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
               <li className="nav-item">
                 <Link 
-                  to="/about-us" 
-                  className={`nav-link ${location.pathname === '/about-us' ? 'active' : ''}`}
+                  to="/about-best-chartered-accountant-mumbai" 
+                  className={`nav-link ${location.pathname === '/about-best-chartered-accountant-mumbai' ? 'active' : ''}`}
                 >
                   About Us
                 </Link>
@@ -137,8 +137,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               {/* Services Dropdown */}
               <li className="nav-item dropdown-wrapper">
                 <Link 
-                  to="/services" 
-                  className={`nav-link dropdown-trigger ${location.pathname.startsWith('/services') ? 'active' : ''}`}
+                  to="/services-chartered-accountant-mumbai" 
+                  className={`nav-link dropdown-trigger ${location.pathname === '/services-chartered-accountant-mumbai' || servicesData.some(c => location.pathname === `/${c.slug}` || location.pathname.startsWith(`/${c.slug}/`)) ? 'active' : ''}`}
                 >
                   Services
                   <ChevronDown size={14} />
@@ -147,7 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                   {servicesData.map((category) => (
                     <div key={category.id} className="dropdown-item">
                       <Link 
-                        to={`/services/${category.slug}`} 
+                        to={`/${category.slug}`} 
                         className="dropdown-link"
                       >
                         <span className="dropdown-icon-box">
@@ -161,7 +161,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                     </div>
                   ))}
                   <div className="dropdown-footer">
-                    <Link to="/services" className="dropdown-footer-link">
+                    <Link to="/services-chartered-accountant-mumbai" className="dropdown-footer-link">
                       <span>Explore All Services</span>
                       <ArrowRight size={14} />
                     </Link>
@@ -198,8 +198,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
               <li className="nav-item">
                 <Link 
-                  to="/contact-us" 
-                  className={`nav-link ${location.pathname === '/contact-us' ? 'active' : ''}`}
+                  to="/contact-chartered-accountant-mumbai" 
+                  className={`nav-link ${location.pathname === '/contact-chartered-accountant-mumbai' ? 'active' : ''}`}
                 >
                   Contact
                 </Link>
@@ -270,7 +270,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           <Link to="/" className={`mobile-nav-link ${location.pathname === '/' ? 'active' : ''}`}>
             Home
           </Link>
-          <Link to="/about-us" className={`mobile-nav-link ${location.pathname === '/about-us' ? 'active' : ''}`}>
+          <Link to="/about-best-chartered-accountant-mumbai" className={`mobile-nav-link ${location.pathname === '/about-best-chartered-accountant-mumbai' ? 'active' : ''}`}>
             About Us
           </Link>
 
@@ -291,13 +291,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             
             {servicesAccordionOpen && (
               <div className="mobile-submenu">
-                <Link to="/services" className="mobile-sub-link font-semibold">
+                <Link to="/services-chartered-accountant-mumbai" className="mobile-sub-link font-semibold">
                   <span>→ Overview (All Services)</span>
                 </Link>
                 {servicesData.map((category) => (
                   <Link 
                     key={category.id} 
-                    to={`/services/${category.slug}`} 
+                    to={`/${category.slug}`} 
                     className="mobile-sub-link"
                   >
                     <span>{category.title}</span>
@@ -319,7 +319,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           <Link to="/chartered-accountant-mumbai" className={`mobile-nav-link ${location.pathname === '/chartered-accountant-mumbai' ? 'active' : ''}`}>
             Chartered Accountant Mumbai
           </Link>
-          <Link to="/contact-us" className={`mobile-nav-link ${location.pathname === '/contact-us' ? 'active' : ''}`}>
+          <Link to="/contact-chartered-accountant-mumbai" className={`mobile-nav-link ${location.pathname === '/contact-chartered-accountant-mumbai' ? 'active' : ''}`}>
             Contact Us
           </Link>
         </div>

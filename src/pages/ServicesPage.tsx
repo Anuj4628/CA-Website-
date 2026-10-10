@@ -53,7 +53,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
       <SEOHead 
         title="Services Overview | CA, Tax & Corporate Advisory Mumbai | Ambika Consultancy"
         description="Explore Ambika Consultancy's practice areas: Income Tax return filing, GST compliance, Accounting & Audit, TDS/TCS, Company Incorporation, and Business Licensing in Mumbai."
-        canonicalPath="/services"
+        canonicalPath="/services-chartered-accountant-mumbai"
       />
 
       {/* Page Header */}
@@ -129,7 +129,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                             {category.shortTitle}
                           </span>
                           <h2 style={{ fontSize: '1.25rem', marginTop: '2px', lineHeight: 1.3, color: '#FFFFFF' }}>
-                            <Link to={`/services/${category.slug}`} style={{ color: 'inherit' }}>
+                            <Link to={`/${category.slug}`} style={{ color: 'inherit' }}>
                               {category.title}
                             </Link>
                           </h2>
@@ -153,7 +153,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                           {category.subServices.slice(0, 4).map((sub) => (
                             <li key={sub.id}>
                               <Link 
-                                to={`/services/${category.slug}/${sub.slug}`}
+                                to={`/${category.slug}/${sub.slug}`}
                                 style={{
                                   display: 'flex',
                                   alignItems: 'center',
@@ -177,7 +177,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                       )}
 
                       <Link 
-                        to={`/services/${category.slug}`}
+                        to={`/${category.slug}`}
                         className="btn btn-outline-white btn-sm"
                         style={{ width: '100%', justifyContent: 'space-between' }}
                       >
@@ -226,7 +226,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                           {category.shortTitle}
                         </span>
                         <h2 style={{ fontSize: '1.25rem', marginTop: '3px', lineHeight: 1.3 }}>
-                          <Link to={`/services/${category.slug}`} style={{ color: 'inherit' }}>
+                          <Link to={`/${category.slug}`} style={{ color: 'inherit' }}>
                             {category.title}
                           </Link>
                         </h2>
@@ -250,7 +250,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                         {category.subServices.slice(0, 4).map((sub) => (
                           <li key={sub.id}>
                             <Link 
-                              to={`/services/${category.slug}/${sub.slug}`}
+                              to={`/${category.slug}/${sub.slug}`}
                               style={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -277,7 +277,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                     )}
 
                     <Link 
-                      to={`/services/${category.slug}`}
+                      to={`/${category.slug}`}
                       className="btn btn-secondary btn-sm"
                       style={{ width: '100%', justifyContent: 'space-between' }}
                     >
