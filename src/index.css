@@ -1,0 +1,836 @@
+/* ==========================================================================
+   AMBIKA CONSULTANCY — PARROT GREEN & NAVY BRAND DESIGN SYSTEM
+   Fresh Parrot Green (#69B34C), Pale Green (#F0F8E8), Deep Navy (#0B2545)
+   Simple, Colorful, Human-Designed Cards with Balanced Whitespace & Rhythm
+   ========================================================================== */
+
+:root {
+  /* Brand Solid Colors (Matching Logo & Parrot Green Direction) */
+  --color-primary: #0B2545;          /* Deep Navy from logo */
+  --color-primary-dark: #001A38;     /* Darker Navy for footer & top bar */
+  --color-primary-light: #163E69;    /* Lighter Navy for secondary elements */
+  --color-primary-soft: #E8F4E2;     /* Subtle green tint for soft backgrounds */
+
+  /* Rich Corporate Green Accent Palette (Deeper, high-contrast green direction) */
+  --color-accent-green: #2D7738;       /* Rich, professional corporate green */
+  --color-accent-green-hover: #23612C; /* Darker green for button hover */
+  --color-accent-green-medium: #3C8B48;/* Medium lively green */
+  --color-accent-green-pale: #E8F4E2;  /* Light green background with clear presence */
+  --color-accent-green-subtle: #D6ECCE;/* Subtle green borders / tag backgrounds */
+  --color-accent-green-border: #A5D493;/* Crisp soft green card borders */
+  --color-accent-green-dark: #1B5E20;  /* High contrast dark green for small text & links */
+
+  /* Logo Saffron Accent (used selectively for high-trust details) */
+  --color-accent-saffron: #E66A20;
+
+  /* Surfaces & Backgrounds */
+  --color-bg-page: #FFFFFF;
+  --color-bg-subtle: #E8F4E2;         /* Pale green background for alternate sections */
+  --color-bg-warm: #FAFBF7;           /* Warm neutral off-white */
+  --color-bg-muted: #E2EFE0;
+  --color-bg-card: #FFFFFF;
+  --color-bg-card-green: #E8F4E2;     /* Light green card background */
+  --color-bg-card-featured: #2D7738;  /* Solid green featured card */
+
+  /* Typography Colors */
+  --color-text-main: #0B2545;         /* Deep Navy text for headings */
+  --color-text-body: #334155;         /* Slate charcoal readable body text */
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
+  --color-text-inverse: #FFFFFF;
+  --color-text-green: #1B5E20;
+
+  /* Subtle Borders & Dividers */
+  --color-border: #E2E8F0;
+  --color-border-green: #A5D493;
+  --color-border-subtle: #F1F5F9;
+  --color-border-strong: #CBD5E1;
+  --color-border-focus: #2D7738;
+
+  /* Functional Status */
+  --color-success: #2D7738;
+  --color-success-bg: #E8F4E2;
+  --color-error: #DC2626;
+  --color-error-bg: #FEF2F2;
+  --color-warning: #E66A20;
+  --color-warning-bg: #FFFBEB;
+
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 80px;
+
+  /* Layout */
+  --max-width-content: 1200px;
+  --max-width-narrow: 780px;
+
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Border Radii - 10px to 16px, refined and human-crafted */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(11, 37, 69, 0.04);
+  --shadow-card: 0 2px 6px rgba(11, 37, 69, 0.04), 0 1px 2px rgba(11, 37, 69, 0.02);
+  --shadow-hover: 0 8px 20px rgba(11, 37, 69, 0.08);
+  --shadow-green: 0 8px 20px rgba(105, 179, 76, 0.18);
+  --shadow-dropdown: 0 10px 25px rgba(11, 37, 69, 0.1);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-page);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.65;
+  overflow-x: hidden;
+  background-color: var(--color-bg-page);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2.35rem; }
+h2 { font-size: 1.85rem; }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.15rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
+
+p {
+  color: var(--color-text-body);
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--max-width-content);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.container-narrow {
+  max-width: var(--max-width-narrow);
+}
+
+.section {
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
+  position: relative;
+}
+
+.section-sm {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+/* Section Background Rhythms */
+.section-subtle {
+  background-color: var(--color-bg-subtle);
+  border-top: 1px solid var(--color-border-green);
+  border-bottom: 1px solid var(--color-border-green);
+}
+
+.section-pale-green {
+  background-color: var(--color-accent-green-pale);
+}
+
+.section-warm {
+  background-color: var(--color-bg-warm);
+}
+
+.section-dark {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-inverse);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: var(--color-text-inverse);
+}
+
+.section-dark p {
+  color: #CBD5E1;
+}
+
+/* Section Header Component */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto var(--space-2xl) auto;
+}
+
+.section-header.text-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-green-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.section-tag-green {
+  color: var(--color-accent-green-dark);
+}
+
+.section-tag-navy {
+  color: var(--color-primary);
+}
+
+.section-title {
+  margin-top: 4px;
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Solid Buttons (Clean, Vibrant Parrot Green & Deep Navy) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 11px 22px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  line-height: 1.25;
+  border: 1px solid transparent;
+}
+
+.btn-primary,
+.btn-green {
+  background-color: var(--color-accent-green);
+  color: #FFFFFF;
+  border-color: var(--color-accent-green);
+}
+
+.btn-primary:hover,
+.btn-green:hover {
+  background-color: var(--color-accent-green-hover);
+  border-color: var(--color-accent-green-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-green);
+}
+
+.btn-navy {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary);
+}
+
+.btn-navy:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-accent-green-pale);
+  border-color: var(--color-accent-green);
+  color: var(--color-accent-green-dark);
+}
+
+.btn-outline-green {
+  background-color: transparent;
+  color: var(--color-accent-green-dark);
+  border-color: var(--color-accent-green);
+}
+
+.btn-outline-green:hover {
+  background-color: var(--color-accent-green-pale);
+  color: var(--color-primary);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--color-text-inverse);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 13px 26px;
+  font-size: 1rem;
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: #FFFFFF;
+  border-color: #25D366;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1EBE5D;
+  border-color: #1EBE5D;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+/* ==========================================================================
+   SIMPLE COLORFUL CARDS (Primary Design Direction)
+   Rectangular cards, 10-16px radius, subtle border, coordinated rhythm
+   ========================================================================== */
+
+.card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  border-color: var(--color-accent-green);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Pale Green Card */
+.card-pale-green {
+  background-color: var(--color-accent-green-pale);
+  border: 1px solid var(--color-border-green);
+}
+
+.card-pale-green:hover {
+  border-color: var(--color-accent-green);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Featured Solid Parrot-Green Card */
+.card-parrot {
+  background-color: var(--color-accent-green);
+  color: #FFFFFF;
+  border: 1px solid var(--color-accent-green-medium);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-green);
+}
+
+.card-parrot h2,
+.card-parrot h3,
+.card-parrot h4 {
+  color: #FFFFFF;
+}
+
+.card-parrot p {
+  color: #F0FDF4;
+}
+
+.card-parrot:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(105, 179, 76, 0.25);
+}
+
+/* Badges / Category Pills */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-muted);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.badge-green {
+  background-color: var(--color-accent-green-subtle);
+  color: var(--color-accent-green-dark);
+  border-color: var(--color-border-green);
+}
+
+.badge-parrot {
+  background-color: var(--color-accent-green);
+  color: #FFFFFF;
+  border-color: var(--color-accent-green);
+}
+
+.badge-navy {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-color: rgba(11, 37, 69, 0.15);
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+/* Forms & Clean Input Fields */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.form-label .required {
+  color: var(--color-error);
+  margin-left: 2px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 0.9375rem;
+  color: var(--color-text-main);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 0 3px rgba(105, 179, 76, 0.15);
+}
+
+.form-control.is-invalid {
+  border-color: var(--color-error);
+}
+
+.form-error {
+  font-size: 0.8125rem;
+  color: var(--color-error);
+  margin-top: 4px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.breadcrumbs a {
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-accent-green-dark);
+}
+
+.breadcrumbs span.current {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Trust Strip */
+.trust-strip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-body);
+}
+
+.trust-item svg {
+  color: var(--color-accent-green);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   PRINCIPAL CONSULTANT SINGLE OFFICE PHOTO CARD
+   Clean, single, professional photograph layout on right side.
+   - Shows consultant sitting at his office desk with computer, files & green desk
+   - Balanced vertical alignment with left text column
+   - 14px rounded corners, crisp border, soft shadow, clean caption bar
+   - No stacked or overlapping images
+   ========================================================================== */
+
+.consultant-single-photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.consultant-single-card {
+  width: 100%;
+  max-width: 480px;
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 14px 34px rgba(11, 37, 69, 0.12);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.consultant-single-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(11, 37, 69, 0.16);
+}
+
+.consultant-single-img-holder {
+  width: 100%;
+  aspect-ratio: 4 / 4.9;
+  overflow: hidden;
+  background-color: #F8FAFC;
+}
+
+.consultant-single-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.consultant-single-caption {
+  padding: 14px 20px;
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.consultant-single-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primary);
+  line-height: 1.25;
+}
+
+.consultant-single-role {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* Multi-photo classes (kept for backwards-compatibility) */
+.consultant-photos-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.consultant-photos-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 490px;
+  min-height: 520px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.layered-photo-main {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(11, 37, 69, 0.14);
+  border: 4px solid #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+.layered-photo-offset {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 24px rgba(11, 37, 69, 0.08);
+  background-color: #FFFFFF;
+}
+
+/* Submission Success Card */
+.submission-success-card {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  background-color: var(--color-accent-green-pale);
+  border: 1px solid var(--color-border-green);
+  border-radius: var(--radius-lg);
+}
+
+.success-icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-accent-green);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md) auto;
+}
+
+.success-title {
+  font-size: 1.35rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+}
+
+.success-desc {
+  color: var(--color-text-body);
+  max-width: 500px;
+  margin: 0 auto var(--space-lg) auto;
+  font-size: 0.9375rem;
+}
+
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.65rem; }
+  h3 { font-size: 1.25rem; }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .section {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.45rem; }
+  h3 { font-size: 1.15rem; }
+
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .package-right-col {
+    border-left: none !important;
+    padding-left: 0 !important;
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-xl) !important;
+  }
+
+  .section {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .trust-strip {
+    gap: var(--space-md);
+  }
+
+  .consultant-single-photo-wrap {
+    width: 100%;
+    margin-top: var(--space-lg);
+  }
+
+  .consultant-single-card {
+    max-width: 100%;
+  }
+
+  .consultant-single-img-holder {
+    aspect-ratio: 4 / 4.4;
+  }
+
+  .consultant-photos-container {
+    justify-content: center;
+  }
+
+  .consultant-photos-wrapper {
+    min-height: auto;
+    max-width: 420px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .consultant-photo-secondary,
+  .consultant-photo-primary {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .consultant-photo-primary {
+    order: 1; /* Main portrait displayed prominently first */
+    border-width: 2px;
+  }
+
+  .consultant-photo-secondary {
+    order: 2; /* In-office photo stacked beneath */
+  }
+
+  .consultant-photo-secondary img {
+    height: 180px;
+  }
+
+  .layered-photo-offset {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: var(--space-md);
+    border-width: 2px;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
