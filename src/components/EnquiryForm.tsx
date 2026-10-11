@@ -5,6 +5,7 @@ import { siteConfig } from '../data/siteConfig';
 interface EnquiryFormProps {
   defaultService?: string;
   sourcePage?: string;
+  submitButtonText?: string;
   onSuccess?: () => void;
 }
 
@@ -24,12 +25,14 @@ interface FormErrors {
   phone?: string;
   email?: string;
   serviceRequired?: string;
+  description?: string;
   consent?: string;
 }
 
 export const EnquiryForm: React.FC<EnquiryFormProps> = ({ 
   defaultService = '', 
   sourcePage = 'General Enquiry',
+  submitButtonText = 'Send Inquiry',
   onSuccess 
 }) => {
   const [formData, setFormData] = useState<FormState>({
@@ -65,12 +68,18 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (formData.email.trim() && !emailRegex.test(formData.email.trim())) {
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email address is required.';
+    } else if (!emailRegex.test(formData.email.trim())) {
       newErrors.email = 'Please provide a valid email address.';
     }
 
     if (!formData.serviceRequired) {
       newErrors.serviceRequired = 'Please select the service required.';
+    }
+
+    if (!formData.description.trim()) {
+      newErrors.description = 'Please enter your message or requirement details.';
     }
 
     if (!formData.consent) {
@@ -193,7 +202,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
       <div className="grid-2" style={{ gap: 'var(--space-md)' }}>
         <div className="form-group">
           <label className="form-label" htmlFor="email">
-            Email Address
+            Email Address <span className="required">*</span>
           </label>
           <input
             id="email"
@@ -203,6 +212,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             disabled={isSubmitting}
+            required
           />
           {errors.email && <div className="form-error">{errors.email}</div>}
         </div>
@@ -256,17 +266,19 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
 
       <div className="form-group">
         <label className="form-label" htmlFor="description">
-          Brief Description of Your Requirement
+          Message <span className="required">*</span>
         </label>
         <textarea
           id="description"
-          className="form-control"
+          className={`form-control ${errors.description ? 'is-invalid' : ''}`}
           rows={3}
-          placeholder="Mention key details (e.g., salaried with stock trading, property sale in Mumbai, pending GST notice, or new company setup)..."
+          placeholder="Describe your requirement (e.g., salaried with capital gains, property sale in Mumbai, pending GST notice, or new company setup)..."
           value={formData.description}
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           disabled={isSubmitting}
+          required
         />
+        {errors.description && <div className="form-error">{errors.description}</div>}
       </div>
 
       <div className="form-group">
@@ -292,11 +304,11 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         id="btn-submit-enquiry"
       >
         {isSubmitting ? (
-          <span>Submitting Details...</span>
+          <span>Sending Inquiry...</span>
         ) : (
           <>
             <Send size={16} />
-            <span>Submit Consultation Request</span>
+            <span>{submitButtonText}</span>
           </>
         )}
       </button>

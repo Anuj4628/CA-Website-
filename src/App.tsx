@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ConsultationModal } from './components/ConsultationModal';
 import { ScrollToTop } from './components/ScrollToTop';
+import { FloatingActionButtons } from './components/FloatingActionButtons';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -90,6 +91,9 @@ export const App: React.FC = () => {
         </main>
 
         <Footer />
+
+        {/* Global Floating WhatsApp and Phone Actions */}
+        <FloatingActionButtons />
 
         {/* Global Consultation Modal */}
         <ConsultationModal 

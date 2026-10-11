@@ -1,0 +1,105 @@
+/* ==========================================================================
+   FLOATING ACTION BUTTONS — WHATSAPP & PHONE
+   Fixed bottom-right corner, compact circular buttons, subtle shadow & hover
+   ========================================================================== */
+
+.floating-actions-container {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.floating-action-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+.floating-action-btn:hover,
+.floating-action-btn:focus-visible {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.32);
+}
+
+.floating-action-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(45, 119, 56, 0.5), 0 8px 20px rgba(0, 0, 0, 0.32);
+}
+
+/* WhatsApp Button */
+.floating-btn-whatsapp {
+  background-color: #25D366;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+}
+
+.floating-btn-whatsapp:hover {
+  background-color: #1EBE5D;
+}
+
+/* Phone Button */
+.floating-btn-phone {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+}
+
+.floating-btn-phone:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* Optional Tooltip label on desktop hover */
+.floating-action-tooltip {
+  position: absolute;
+  right: 60px;
+  white-space: nowrap;
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.floating-action-btn:hover .floating-action-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .floating-actions-container {
+    bottom: 20px;
+    right: 20px;
+    gap: 10px;
+  }
+
+  .floating-action-btn {
+    width: 46px;
+    height: 46px;
+  }
+
+  .floating-action-tooltip {
+    display: none;
+  }
+}

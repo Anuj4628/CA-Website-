@@ -26,6 +26,8 @@ import { compliancePackages } from '../data/packagesData';
 import { resourcesData } from '../data/resourcesData';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { SEOHead } from '../components/SEOHead';
+import { HeroSlider } from '../components/HeroSlider';
+import { ServiceImageFlipCard } from '../components/ServiceImageFlipCard';
 import { usePageEntrance } from '../utils/animation';
 
 interface HomePageProps {
@@ -35,6 +37,25 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   usePageEntrance(containerRef);
+
+  const getServiceImage = (id: string) => {
+    switch (id) {
+      case 'income-tax':
+        return '/assets/service-card-income-tax.jpg';
+      case 'gst':
+        return '/assets/service-card-gst.jpg';
+      case 'accounting-audit':
+        return '/assets/service-card-accounting.jpg';
+      case 'tds-tcs':
+        return '/assets/service-card-tds.jpg';
+      case 'company-registration-compliance':
+        return '/assets/service-card-company.jpg';
+      case 'business-registrations':
+        return '/assets/service-card-business.jpg';
+      default:
+        return '/assets/service-card-accounting.jpg';
+    }
+  };
 
   const getServiceIcon = (name: string) => {
     switch (name) {
@@ -79,19 +100,22 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
         canonicalPath="/"
       />
 
-      {/* SECTION 1: HERO */}
-      <section className="section" style={{ paddingTop: 'var(--space-3xl)', paddingBottom: 'var(--space-3xl)', backgroundColor: '#FFFFFF' }}>
+      {/* SECTION 1: NEW HERO SLIDER */}
+      <HeroSlider onOpenConsultation={onOpenConsultation} />
+
+      {/* SECTION 2: PRINCIPAL CONSULTANT ADVISORY HERO (PRESERVED) */}
+      <section className="section" style={{ paddingTop: 'var(--space-2xl)', paddingBottom: 'var(--space-2xl)', backgroundColor: '#FFFFFF' }}>
         <div className="container">
-          <div className="grid-2" style={{ alignItems: 'center', gap: 'var(--space-3xl)' }}>
+          <div className="grid-2" style={{ alignItems: 'center', gap: 'var(--space-2xl)' }}>
             {/* Left Column: Headlines & CTA */}
             <div>
               <span data-animate="hero" className="section-tag section-tag-green">
                 Chartered Accountancy & Tax Advisory • Fort, Mumbai
               </span>
 
-              <h1 data-animate="hero" style={{ marginTop: 'var(--space-xs)', marginBottom: 'var(--space-md)', fontSize: '2.5rem', lineHeight: 1.2 }}>
+              <h2 data-animate="hero" style={{ marginTop: 'var(--space-xs)', marginBottom: 'var(--space-md)', fontSize: '2.25rem', lineHeight: 1.25 }}>
                 Trusted Tax & Financial Advisory for Individuals and Businesses
-              </h1>
+              </h2>
 
               <p data-animate="hero" style={{ fontSize: '1.05rem', color: 'var(--color-text-body)', lineHeight: 1.65, marginBottom: 'var(--space-xl)', maxWidth: '540px' }}>
                 Personalized guidance for Income Tax, GST compliance, accounting, and corporate filings — led directly by senior consultant <strong style={{ color: 'var(--color-primary)' }}>Dinesh H. Maurya</strong> with precision, transparency, and care.
@@ -177,7 +201,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
         </div>
       </section>
 
-      {/* SECTION 2: TRUST PRINCIPLES (Pale Green Background Rhythm) */}
+      {/* SECTION 3: TRUST PRINCIPLES (Pale Green Background Rhythm) */}
       <section className="section section-sm section-subtle" data-animate="section-reveal">
         <div className="container">
           <div className="grid-4" data-animate="cards-stagger">
@@ -203,148 +227,31 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
         </div>
       </section>
 
-      {/* SECTION 3: CORE SERVICES — SIMPLE COLORFUL CARDS (Primary Design Direction) */}
+      {/* SECTION 4: CORE SERVICES — INTERACTIVE 3D IMAGE FLIP CARDS */}
       <section className="section" data-animate="section-reveal">
         <div className="container">
           <div className="section-header">
             <span className="section-tag section-tag-green">Practice Areas</span>
             <h2 className="section-title">Core Accounting & Tax Services</h2>
             <p className="section-subtitle">
-              Structured professional solutions covering statutory direct taxes, indirect taxes, accounting standards, and corporate governance.
+              Structured professional solutions covering statutory direct taxes, indirect taxes, accounting standards, and corporate governance. Hover or tap to review key highlights.
             </p>
           </div>
 
           <div className="grid-3" data-animate="cards-stagger">
-            {servicesData.map((category, idx) => {
-              // Strict Alternating Sequence: Solid Green → Light Green → Solid Green → Light Green → Solid Green → Light Green
-              const isSolidGreen = idx % 2 === 0;
-
-              if (isSolidGreen) {
-                return (
-                  <div 
-                    key={category.id} 
-                    className="card card-parrot"
-                    style={{ 
-                      padding: 'var(--space-xl)', 
-                      display: 'flex', 
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      height: '100%'
-                    }}
-                  >
-                    <div>
-                      <div 
-                        style={{
-                          width: '44px',
-                          height: '44px',
-                          backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                          color: '#FFFFFF',
-                          borderRadius: 'var(--radius-md)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          marginBottom: 'var(--space-md)'
-                        }}
-                      >
-                        {getServiceIcon(category.iconName)}
-                      </div>
-
-                      <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(255, 255, 255, 0.9)' }}>
-                        {category.shortTitle}
-                      </span>
-
-                      <h3 style={{ fontSize: '1.2rem', marginTop: '2px', marginBottom: '8px', color: '#FFFFFF' }}>
-                        {category.title}
-                      </h3>
-
-                      <p style={{ fontSize: '0.875rem', color: '#F0FDF4', lineHeight: 1.6, marginBottom: 'var(--space-lg)' }}>
-                        {category.description}
-                      </p>
-                    </div>
-
-                    <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.25)', paddingTop: '14px', marginTop: 'auto' }}>
-                      <Link 
-                        to={`/${category.slug}`}
-                        style={{ 
-                          fontSize: '0.875rem', 
-                          fontWeight: 600, 
-                          color: '#FFFFFF', 
-                          display: 'inline-flex', 
-                          alignItems: 'center', 
-                          gap: '6px' 
-                        }}
-                      >
-                        <span>Explore Scope</span>
-                        <ArrowRight size={14} style={{ color: '#FFFFFF' }} />
-                      </Link>
-                    </div>
-                  </div>
-                );
-              }
-
-              // Light Green Card
-              return (
-                <div 
-                  key={category.id} 
-                  className="card card-pale-green"
-                  style={{ 
-                    padding: 'var(--space-xl)', 
-                    display: 'flex', 
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    height: '100%'
-                  }}
-                >
-                  <div>
-                    <div 
-                      style={{
-                        width: '44px',
-                        height: '44px',
-                        backgroundColor: '#FFFFFF',
-                        color: 'var(--color-accent-green)',
-                        border: '1px solid var(--color-border-green)',
-                        borderRadius: 'var(--radius-md)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: 'var(--space-md)'
-                      }}
-                    >
-                      {getServiceIcon(category.iconName)}
-                    </div>
-
-                    <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-accent-green-dark)' }}>
-                      {category.shortTitle}
-                    </span>
-
-                    <h3 style={{ fontSize: '1.2rem', marginTop: '2px', marginBottom: '8px', color: 'var(--color-primary)' }}>
-                      {category.title}
-                    </h3>
-
-                    <p style={{ fontSize: '0.875rem', color: 'var(--color-text-body)', lineHeight: 1.6, marginBottom: 'var(--space-lg)' }}>
-                      {category.description}
-                    </p>
-                  </div>
-
-                  <div style={{ borderTop: '1px solid var(--color-border-green)', paddingTop: '14px', marginTop: 'auto' }}>
-                    <Link 
-                      to={`/${category.slug}`}
-                      style={{ 
-                        fontSize: '0.875rem', 
-                        fontWeight: 600, 
-                        color: 'var(--color-primary)', 
-                        display: 'inline-flex', 
-                        alignItems: 'center', 
-                        gap: '6px' 
-                      }}
-                    >
-                      <span>Explore Scope</span>
-                      <ArrowRight size={14} style={{ color: 'var(--color-accent-green)' }} />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
+            {servicesData.map((category, idx) => (
+              <ServiceImageFlipCard
+                key={category.id}
+                id={category.id}
+                slug={category.slug}
+                title={category.title}
+                shortTitle={category.shortTitle}
+                description={category.description}
+                highlights={category.benefits}
+                imageUrl={getServiceImage(category.id)}
+                index={idx}
+              />
+            ))}
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-2xl)' }}>
