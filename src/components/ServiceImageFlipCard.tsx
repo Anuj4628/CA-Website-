@@ -82,7 +82,7 @@ export const ServiceImageFlipCard: React.FC<ServiceImageFlipCardProps> = ({
 
         {/* ==================== BACK SIDE: DESCRIPTION + HIGHLIGHTS + LEARN MORE ==================== */}
         <div className="service-flip-card-back">
-          <div>
+          <div className="service-flip-back-body">
             <div className="service-flip-back-header">
               <span className="service-flip-back-tag">Service Highlights</span>
               <button
@@ -105,7 +105,7 @@ export const ServiceImageFlipCard: React.FC<ServiceImageFlipCardProps> = ({
             <ul className="service-flip-back-highlights">
               {highlights.slice(0, 3).map((item, idx) => (
                 <li key={idx} className="service-flip-back-highlight-item">
-                  <CheckCircle2 size={15} className="service-flip-back-check-icon" aria-hidden="true" />
+                  <CheckCircle2 size={14} className="service-flip-back-check-icon" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}

@@ -9,7 +9,8 @@
   perspective: 1200px;
   -webkit-perspective: 1200px;
   width: 100%;
-  height: 380px;
+  height: 440px;
+  min-height: 440px;
   outline: none;
   border-radius: var(--radius-lg);
   position: relative;
@@ -166,11 +167,18 @@
   -webkit-transform: rotateY(180deg);
   background-color: var(--color-accent-green-pale);
   border: 1px solid var(--color-border-green);
-  padding: 24px;
+  padding: 22px 22px 18px 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: var(--color-text-main);
+  box-sizing: border-box;
+}
+
+.service-flip-back-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 }
 
 .service-flip-back-header {
@@ -178,6 +186,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 8px;
+  flex-shrink: 0;
 }
 
 .service-flip-back-tag {
@@ -204,6 +213,7 @@
   cursor: pointer;
   padding: 3px 6px;
   border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
 }
 
 .service-flip-back-return:hover {
@@ -217,6 +227,7 @@
   color: var(--color-primary);
   margin: 0 0 6px 0;
   line-height: 1.25;
+  flex-shrink: 0;
 }
 
 .service-flip-back-desc {
@@ -224,15 +235,20 @@
   line-height: 1.45;
   color: var(--color-text-body);
   margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .service-flip-back-highlights {
   list-style: none;
   padding: 0;
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
 }
 
 .service-flip-back-highlight-item {
@@ -257,6 +273,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 }
 
 .service-flip-back-btn {
@@ -290,11 +307,12 @@
 /* Mobile & Touch Support */
 @media (max-width: 640px) {
   .service-flip-card {
-    height: 360px;
+    height: 420px;
+    min-height: 420px;
   }
   .service-flip-front-content,
   .service-flip-card-back {
-    padding: 20px;
+    padding: 18px;
   }
   .service-flip-front-title {
     font-size: 1.15rem;

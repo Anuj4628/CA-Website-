@@ -246,7 +246,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
                 slug={category.slug}
                 title={category.title}
                 shortTitle={category.shortTitle}
-                description={category.description}
+                description={category.tagline || category.description}
                 highlights={category.benefits}
                 imageUrl={getServiceImage(category.id)}
                 index={idx}

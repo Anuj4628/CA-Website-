@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { servicesData } from '../data/servicesData';
+import brandLogo from '../assets/logo.png';
 import './Navbar.css';
 
 interface NavbarProps {
@@ -249,11 +250,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       {/* Mobile Navigation Drawer */}
       <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`} aria-hidden={!mobileMenuOpen}>
         <div className="mobile-drawer-header">
-          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+          <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ display: 'flex', alignItems: 'center' }}>
             <img 
-              src="/assets/logo-transparent.png" 
+              src="/assets/logo.png" 
               alt="Ambika Consultancy CA" 
-              style={{ height: '38px', width: 'auto' }}
+              style={{ height: '42px', width: 'auto', display: 'block', objectFit: 'contain' }}
             />
           </Link>
           <button 

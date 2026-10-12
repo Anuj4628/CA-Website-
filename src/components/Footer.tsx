@@ -23,10 +23,10 @@ export const Footer: React.FC = () => {
             <div className="footer-col">
               <Link to="/" className="footer-brand-logo" aria-label="Ambika Consultancy">
                 <img 
-                  src="/assets/logo.png" 
+                  src="/assets/logo-white.png" 
                   alt="Ambika Consultancy CA Logo" 
                   className="footer-logo-img"
-                  height="48"
+                  height="46"
                 />
               </Link>
 
