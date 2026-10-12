@@ -7,7 +7,8 @@ import {
   MessageSquare, 
   ExternalLink,
   ShieldCheck,
-  Building2
+  Building2,
+  Navigation
 } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { EnquiryForm } from '../components/EnquiryForm';
@@ -253,7 +254,7 @@ export const ContactPage: React.FC = () => {
 
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                 <a
-                  href="https://maps.google.com/?q=40+42+Modi+Street+Fort+Mumbai+400001"
+                  href="https://maps.google.com/?q=18.9373757,72.8362616(Ambika+Consultancy)"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary btn-sm"
@@ -290,7 +291,7 @@ export const ContactPage: React.FC = () => {
             >
               <iframe
                 title="Ambika Consultancy Fort Head Office Google Maps Location"
-                src="https://maps.google.com/maps?q=40%2F42%2C+Modi+Street%2C+Office+No.+14%2C+Fort%2C+Mumbai%2C+Maharashtra+400001&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=18.9373757,72.8362616&z=17&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, display: 'block', width: '100%', height: '100%' }}
@@ -298,6 +299,71 @@ export const ContactPage: React.FC = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
+
+              {/* Ambika Consultancy Place Card (replacing Yash Copier) */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '12px',
+                  left: '12px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.28)',
+                  padding: '12px 14px',
+                  maxWidth: '310px',
+                  zIndex: 2,
+                  fontFamily: 'inherit',
+                  pointerEvents: 'auto'
+                }}
+              >
+                <div style={{ fontWeight: 700, fontSize: '0.9375rem', color: '#1a1a1a', lineHeight: 1.25 }}>
+                  Ambika Consultancy
+                </div>
+                <div style={{ fontSize: '0.78125rem', color: '#555555', marginTop: '4px', lineHeight: 1.4 }}>
+                  Office No. 14, 2nd Floor, 40/42, Modi St, near CST Railway Station, Borabazar Precinct, Fort, Mumbai, Maharashtra 400001, India
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '10px' }}>
+                  <a
+                    href="https://maps.google.com/?q=18.9373757,72.8362616(Ambika+Consultancy)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                      backgroundColor: '#1a73e8',
+                      color: '#ffffff',
+                      fontSize: '0.78125rem',
+                      fontWeight: 500,
+                      padding: '6px 12px',
+                      borderRadius: '16px',
+                      textDecoration: 'none'
+                    }}
+                  >
+                    <ExternalLink size={12} />
+                    <span>Open in Maps</span>
+                  </a>
+                  <a
+                    href="https://maps.google.com/maps/dir//18.9373757,72.8362616"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Get Directions"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '50%',
+                      backgroundColor: '#e8f0fe',
+                      color: '#1a73e8',
+                      textDecoration: 'none'
+                    }}
+                  >
+                    <Navigation size={13} />
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Quick 2-Office Cards below Map */}
@@ -318,7 +384,7 @@ export const ContactPage: React.FC = () => {
                     <span>Fort Head Office (South Mumbai)</span>
                   </div>
                   <a
-                    href="https://maps.google.com/?q=40+42+Modi+Street+Fort+Mumbai+400001"
+                    href="https://maps.google.com/?q=18.9373757,72.8362616(Ambika+Consultancy)"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ fontSize: '0.75rem', color: 'var(--color-accent-green-dark)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '3px' }}

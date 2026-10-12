@@ -144,7 +144,7 @@ export const MumbaiCaPage: React.FC<MumbaiCaPageProps> = ({ onOpenConsultation }
 
                 <div style={{ borderTop: '1px solid var(--color-border-green)', paddingTop: 'var(--space-md)' }}>
                   <a 
-                    href="https://maps.google.com/?q=40+42+Modi+Street+Fort+Mumbai+400001"
+                    href="https://maps.google.com/?q=18.9373757,72.8362616(Ambika+Consultancy)"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-secondary btn-sm"

@@ -77,7 +77,7 @@ export const siteConfig = {
       addressLine2: 'Near CSMT & Reserve Bank of India, Fort',
       city: 'Mumbai',
       pincode: '400 001',
-      mapsUrl: 'https://maps.google.com/?q=40+42+Modi+Street+Fort+Mumbai+400001',
+      mapsUrl: 'https://maps.google.com/?q=18.9373757,72.8362616(Ambika+Consultancy)',
       notes: 'Conveniently situated in the historic financial center of South Mumbai, walking distance from CSMT and Churchgate stations.'
     },
     {
