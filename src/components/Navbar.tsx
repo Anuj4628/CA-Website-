@@ -19,6 +19,7 @@ import {
 import { siteConfig } from '../data/siteConfig';
 import { servicesData } from '../data/servicesData';
 import brandLogo from '../assets/logo.png';
+import { SocialIcons } from './SocialIcons';
 import './Navbar.css';
 
 interface NavbarProps {
@@ -97,6 +98,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             >
               <span>Fort & Belapur Offices</span>
             </Link>
+
+            {/* Social Media Handles (Extreme Right End) */}
+            <div className="top-bar-social-wrap">
+              <span className="top-bar-social-divider" aria-hidden="true" />
+              <SocialIcons variant="topbar" />
+            </div>
           </div>
         </div>
       </div>

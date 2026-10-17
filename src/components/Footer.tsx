@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { servicesData } from '../data/servicesData';
+import { SocialIcons } from './SocialIcons';
 import './Footer.css';
 
 export const Footer: React.FC = () => {
@@ -63,6 +64,12 @@ export const Footer: React.FC = () => {
                   <Clock size={15} />
                   <span>{siteConfig.contact.workingHours}</span>
                 </span>
+              </div>
+
+              {/* Social Media Handles */}
+              <div className="footer-social-wrap">
+                <span className="footer-social-label">Follow Us:</span>
+                <SocialIcons variant="footer" />
               </div>
             </div>
 

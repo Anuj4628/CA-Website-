@@ -68,6 +68,13 @@ export const siteConfig = {
     workingHours: 'Monday to Saturday: 10:00 AM – 7:30 PM (Sunday Closed)',
   },
 
+  // Official Social Media Profiles & Online Handles
+  social: {
+    facebook: 'https://www.facebook.com',
+    instagram: 'https://www.instagram.com',
+    twitter: 'https://x.com',
+  },
+
   // Confirmed Office Locations
   offices: [
     {

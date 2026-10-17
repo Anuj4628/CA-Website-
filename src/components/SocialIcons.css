@@ -1,0 +1,197 @@
+/* Social Media Handles Styling — Clean, Sharp, Perfectly Aligned & Responsive */
+
+.social-icons-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Individual Icon Buttons */
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--transition-fast), 
+              box-shadow var(--transition-fast), 
+              filter var(--transition-fast);
+  flex-shrink: 0;
+  line-height: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  vertical-align: middle;
+}
+
+.social-icon-btn .social-svg {
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+}
+
+.social-icon-btn:hover {
+  transform: translateY(-2px);
+}
+
+.social-icon-btn:hover .social-svg {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  filter: brightness(1.1);
+}
+
+.social-icon-btn:focus-visible {
+  outline: 2px solid var(--color-accent-green);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------- */
+/* 1. TOP ANNOUNCEMENT / INFO BAR VARIANT               */
+/* ---------------------------------------------------- */
+.social-icons-topbar {
+  gap: 6px;
+  margin-left: 2px;
+}
+
+.social-icons-topbar .social-icon-btn {
+  width: 22px;
+  height: 22px;
+}
+
+.social-icons-topbar .social-svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Top bar wrapper with clean divider */
+.top-bar-social-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+.top-bar-social-divider {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------- */
+/* 2. FOOTER VARIANT                                    */
+/* ---------------------------------------------------- */
+.social-icons-footer {
+  gap: 10px;
+}
+
+.social-icons-footer .social-icon-btn {
+  width: 28px;
+  height: 28px;
+}
+
+.social-icons-footer .social-svg {
+  width: 28px;
+  height: 28px;
+}
+
+.footer-social-wrap {
+  margin-top: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-social-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  letter-spacing: 0.01em;
+}
+
+/* ---------------------------------------------------- */
+/* 3. CONTACT PAGE VARIANT                              */
+/* ---------------------------------------------------- */
+.social-icons-contact {
+  gap: 12px;
+}
+
+.social-icons-contact .social-icon-btn {
+  width: 32px;
+  height: 32px;
+}
+
+.social-icons-contact .social-svg {
+  width: 32px;
+  height: 32px;
+}
+
+.contact-social-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px dashed var(--color-border-green);
+}
+
+.contact-social-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-social-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.contact-social-subtitle {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ---------------------------------------------------- */
+/* RESPONSIVENESS                                       */
+/* ---------------------------------------------------- */
+@media (max-width: 640px) {
+  .top-bar-social-wrap {
+    gap: 6px;
+    margin-left: 2px;
+  }
+  
+  .social-icons-topbar {
+    gap: 5px;
+  }
+  
+  .social-icons-topbar .social-icon-btn,
+  .social-icons-topbar .social-svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .top-bar-social-divider {
+    height: 14px;
+  }
+
+  .contact-social-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

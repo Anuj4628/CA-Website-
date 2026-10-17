@@ -14,6 +14,7 @@ import { siteConfig } from '../data/siteConfig';
 import { EnquiryForm } from '../components/EnquiryForm';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SEOHead } from '../components/SEOHead';
+import { SocialIcons } from '../components/SocialIcons';
 import { usePageEntrance } from '../utils/animation';
 
 export const ContactPage: React.FC = () => {
@@ -174,6 +175,19 @@ export const ContactPage: React.FC = () => {
                     <MessageSquare size={16} />
                     <span>Chat Directly on WhatsApp (+91 93213 34335)</span>
                   </a>
+                </div>
+
+                {/* Official Social Media Handles & Ads */}
+                <div className="contact-social-wrap">
+                  <div className="contact-social-info">
+                    <span className="contact-social-title">
+                      Official Social Media
+                    </span>
+                    <span className="contact-social-subtitle">
+                      Stay connected with us across platforms
+                    </span>
+                  </div>
+                  <SocialIcons variant="contact" />
                 </div>
               </div>
 

@@ -8,6 +8,11 @@
   line-height: 1.2;
 }
 
+.top-bar .container {
+  max-width: 1420px;
+  width: 100%;
+}
+
 .top-bar-container {
   display: flex;
   align-items: center;
@@ -16,11 +21,18 @@
   width: 100%;
 }
 
-.top-bar-left,
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
 .top-bar-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
+  flex-shrink: 0;
 }
 
 .top-bar-item {
@@ -451,6 +463,12 @@
   #btn-nav-book-consultation {
     padding: 0 12px;
     font-size: 0.775rem;
+  }
+}
+
+@media (max-width: 1320px) {
+  .top-bar-hours {
+    display: none;
   }
 }
 
