@@ -47,7 +47,7 @@ export const PrivacyPolicyPage: React.FC = () => {
 
           <h2 style={{ fontSize: '1.35rem', marginTop: 'var(--space-xl)', marginBottom: 'var(--space-sm)' }}>4. Data Security & Storage</h2>
           <p style={{ marginBottom: 'var(--space-md)' }}>
-            All electronic files and paper documentation maintained at our Fort and Belapur offices are protected with password protection, secure drive systems, and physical filing controls. Access is restricted exclusively to authorized personnel working directly on your file.
+            All electronic files and paper documentation maintained at our Fort and Ghatkopar offices are protected with password protection, secure drive systems, and physical filing controls. Access is restricted exclusively to authorized personnel working directly on your file.
           </p>
 
           <h2 style={{ fontSize: '1.35rem', marginTop: 'var(--space-xl)', marginBottom: 'var(--space-sm)' }}>5. Contact for Privacy Inquiries</h2>

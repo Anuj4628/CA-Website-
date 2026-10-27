@@ -25,7 +25,7 @@ export const ContactPage: React.FC = () => {
     <div ref={containerRef} className="contact-page">
       <SEOHead 
         title="Contact Chartered Accountant & Tax Advisory | Ambika Consultancy Mumbai"
-        description="Schedule a consultation with Dinesh H. Maurya at Ambika Consultancy. Offices in Fort, South Mumbai & CBD Belapur, Navi Mumbai. Phone: +91 93213 34335, 022-4002 1960."
+        description="Schedule a consultation with Dinesh H. Maurya at Ambika Consultancy. Offices in Fort, South Mumbai & Ghatkopar West, Mumbai. Phone: +91 93213 34335, +91 79773 60617."
         canonicalPath="/contact-chartered-accountant-mumbai"
       />
 
@@ -39,7 +39,7 @@ export const ContactPage: React.FC = () => {
               Contact Ambika Consultancy
             </h1>
             <p style={{ fontSize: '1.05rem', color: 'var(--color-text-body)', maxWidth: '750px', lineHeight: 1.6 }}>
-              Reach out to our offices in Fort, South Mumbai or CBD Belapur, Navi Mumbai. We welcome scheduled in-person visits, direct phone inquiries, and electronic consultation requests.
+              Reach out to our offices in Fort, South Mumbai or Ghatkopar West, Mumbai. We welcome scheduled in-person visits, direct phone inquiries, and electronic consultation requests.
             </p>
           </div>
         </div>
@@ -62,10 +62,8 @@ export const ContactPage: React.FC = () => {
 
               {/* Contact Details Card with Light Green Accent */}
               <div 
+                className="card card-pale-green"
                 style={{
-                  backgroundColor: 'var(--color-accent-green-pale)',
-                  border: '1px solid var(--color-border-green)',
-                  borderRadius: 'var(--radius-lg)',
                   padding: 'var(--space-xl)',
                   marginBottom: 'var(--space-lg)'
                 }}
@@ -88,7 +86,7 @@ export const ContactPage: React.FC = () => {
                         {' '}/ <a href={`tel:${siteConfig.contact.secondaryPhoneRaw}`} style={{ color: 'var(--color-primary)', fontWeight: 600 }}>{siteConfig.contact.secondaryPhone}</a>
                       </div>
                       <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', marginTop: '2px' }}>
-                        Fort Office Landline: <a href={`tel:${siteConfig.contact.landline1Raw}`} style={{ color: 'inherit' }}>{siteConfig.contact.landline1}</a> / <a href={`tel:${siteConfig.contact.landline2Raw}`} style={{ color: 'inherit' }}>{siteConfig.contact.landline2}</a>
+                        Fort Office Landline: <a href={`tel:${siteConfig.contact.landline2Raw}`} style={{ color: 'inherit' }}>{siteConfig.contact.landline2}</a>
                       </div>
                     </div>
                   </div>
@@ -131,17 +129,17 @@ export const ContactPage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* CBD Belapur Branch Address */}
+                  {/* Ghatkopar Branch Address */}
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                     <div style={{ width: '38px', height: '38px', borderRadius: 'var(--radius-sm)', backgroundColor: '#FFFFFF', color: 'var(--color-accent-green-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px', border: '1px solid var(--color-border-green)' }}>
                       <Building2 size={18} />
                     </div>
                     <div>
                       <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--color-primary)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                        CBD Belapur Branch (Navi Mumbai)
+                        Ghatkopar Branch (Mumbai)
                       </div>
                       <div style={{ fontSize: '0.875rem', color: 'var(--color-text-body)', marginTop: '2px', lineHeight: 1.45 }}>
-                        D-10, 1-2, Income Tax Colony, Sector 21-22, CBD Belapur, Navi Mumbai - 400 614
+                        Flat No.305, A Wing 3rd Floor, Neelkanthdhara Bldg, LBS Marg, Near Mukund Staff Vrindavan Soc, Ghatkopar West, Mumbai - 400086
                       </div>
                     </div>
                   </div>
@@ -201,12 +199,11 @@ export const ContactPage: React.FC = () => {
             {/* RIGHT COLUMN: CONTACT FORM SECTION */}
             <div>
               <div 
+                className="card"
                 style={{
                   backgroundColor: '#FFFFFF',
                   border: '1px solid var(--color-border-green)',
-                  borderRadius: 'var(--radius-lg)',
-                  padding: 'var(--space-2xl)',
-                  boxShadow: 'var(--shadow-card)'
+                  padding: 'var(--space-2xl)'
                 }}
               >
                 <div style={{ marginBottom: 'var(--space-lg)' }}>
@@ -324,7 +321,7 @@ export const ContactPage: React.FC = () => {
                   borderRadius: '8px',
                   boxShadow: '0 2px 6px rgba(0,0,0,0.28)',
                   padding: '12px 14px',
-                  maxWidth: '310px',
+                  maxWidth: 'min(310px, calc(100% - 24px))',
                   zIndex: 2,
                   fontFamily: 'inherit',
                   pointerEvents: 'auto'
@@ -415,7 +412,7 @@ export const ContactPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* CBD Belapur Branch Details */}
+              {/* Ghatkopar Branch Details */}
               <div 
                 style={{
                   padding: 'var(--space-md) var(--space-lg)',
@@ -427,10 +424,10 @@ export const ContactPage: React.FC = () => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <Building2 size={15} style={{ color: 'var(--color-primary)' }} />
-                    <span>CBD Belapur Branch (Navi Mumbai)</span>
+                    <span>Ghatkopar Branch (Mumbai)</span>
                   </div>
                   <a
-                    href="https://maps.google.com/?q=Income+Tax+Colony+Sector+21+22+CBD+Belapur+Navi+Mumbai"
+                    href="https://maps.google.com/?q=Neelkanthdhara+Bldg+LBS+Marg+Ghatkopar+West+Mumbai+400086"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ fontSize: '0.75rem', color: 'var(--color-accent-green-dark)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '3px' }}
@@ -440,10 +437,10 @@ export const ContactPage: React.FC = () => {
                   </a>
                 </div>
                 <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-body)', marginTop: '4px' }}>
-                  D-10, 1-2, Income Tax Colony, Sector 21-22, CBD Belapur, Navi Mumbai - 400 614
+                  Flat No.305, A Wing 3rd Floor, Neelkanthdhara Bldg, LBS Marg, Near Mukund Staff Vrindavan Soc, Ghatkopar West, Mumbai - 400086
                 </div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', marginTop: '2px' }}>
-                  Serving taxpayers and business founders across Navi Mumbai, Vashi, and Konkan corridor.
+                  Serving taxpayers, entrepreneurs, and business clients across Ghatkopar and Eastern Suburbs.
                 </div>
               </div>
 

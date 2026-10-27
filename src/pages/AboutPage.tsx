@@ -27,7 +27,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenConsultation }) => {
     <div ref={containerRef} className="about-page">
       <SEOHead 
         title="About Dinesh H. Maurya & Ambika Consultancy | Fort, Mumbai"
-        description="Learn about Dinesh H. Maurya and Ambika Consultancy. Professional tax, GST, and corporate accounting services based in Fort, Mumbai and CBD Belapur."
+        description="Learn about Dinesh H. Maurya and Ambika Consultancy. Professional tax, GST, and corporate accounting services based in Fort, Mumbai and Ghatkopar West."
         canonicalPath="/about-best-chartered-accountant-mumbai"
       />
 
@@ -178,9 +178,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenConsultation }) => {
         <div className="container">
           <div className="section-header">
             <span className="section-tag section-tag-green">Office Locations</span>
-            <h2 className="section-title">Serving South Mumbai & Navi Mumbai</h2>
+            <h2 className="section-title">Serving South Mumbai & Suburban Mumbai</h2>
             <p className="section-subtitle">
-              With convenient offices in the commercial heart of Fort, Mumbai and the corporate corridor of CBD Belapur, we provide accessible advisory across the metropolitan region.
+              With convenient offices in the commercial heart of Fort, Mumbai and Ghatkopar West, we provide accessible advisory across the metropolitan region.
             </p>
           </div>
 
@@ -285,7 +285,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenConsultation }) => {
               Discuss Your Tax & Accounting Requirements
             </h2>
             <p style={{ color: '#E2E8F0', maxWidth: '540px', margin: '0 auto var(--space-lg) auto', fontSize: '0.95rem' }}>
-              Schedule a one-on-one session with Dinesh H. Maurya at our Fort or Belapur office, or request a phone consultation today.
+              Schedule a one-on-one session with Dinesh H. Maurya at our Fort or Ghatkopar office, or request a phone consultation today.
             </p>
             <div style={{ display: 'flex', gap: 'var(--space-md)', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button 

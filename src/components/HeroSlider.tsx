@@ -81,7 +81,6 @@ const AUTO_SLIDE_INTERVAL = 5500; // 5.5 seconds
 
 export const HeroSlider: React.FC<HeroSliderProps> = ({ onOpenConsultation }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const nextSlide = useCallback(() => {
@@ -92,13 +91,8 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onOpenConsultation }) =>
     setCurrentSlide(index);
   };
 
-  // Automatic slide rotation
+  // Continuous automatic slide rotation (uninterrupted by mouse hover)
   useEffect(() => {
-    if (isHovered) {
-      if (timerRef.current) clearInterval(timerRef.current);
-      return;
-    }
-
     timerRef.current = setInterval(() => {
       nextSlide();
     }, AUTO_SLIDE_INTERVAL);
@@ -106,7 +100,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onOpenConsultation }) =>
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isHovered, nextSlide, currentSlide]);
+  }, [nextSlide, currentSlide]);
 
   // Keyboard navigation support
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -119,9 +113,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onOpenConsultation }) =>
 
   return (
     <section 
-      className={`hero-slider ${isHovered ? 'is-paused' : ''}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="hero-slider"
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="region"

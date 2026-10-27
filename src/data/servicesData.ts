@@ -112,7 +112,7 @@ export const servicesData: ServiceCategory[] = [
         commonIssues: ['Mismatch between employer TDS and 26AS credit', 'Unaccounted interest from savings bank and fixed deposits', 'Filing the wrong ITR form leading to defective return notices'],
         faqs: [
           { question: 'What is the fee for filing an ITR?', answer: 'Our professional fees are transparent and depend on the complexity of your income sources (e.g., standard salary vs multi-broker trading accounts). Contact us for a direct quote.' },
-          { question: 'Do I need to visit your Fort office in person?', answer: 'In-person visits to our Fort or Belapur offices are welcome, but the entire process can also be completed smoothly via phone, WhatsApp, and email.' }
+          { question: 'Do I need to visit your Fort office in person?', answer: 'In-person visits to our Fort or Ghatkopar offices are welcome, but the entire process can also be completed smoothly via phone, WhatsApp, and email.' }
         ],
         relatedSlugs: ['capital-gains-tax', 'tax-notice-assistance', 'itr-revision-and-rectification']
       },
@@ -212,7 +212,7 @@ export const servicesData: ServiceCategory[] = [
     tagline: 'End-to-end GST registration, monthly return filing, 2B reconciliation, and notice resolution.',
     description: 'Avoid penalties, blocked input tax credits (ITC), and cancellation notices. Ambika Consultancy handles monthly and quarterly GST filings (GSTR-1, GSTR-3B, GSTR-9), multi-vendor reconciliation, and department replies.',
     metaTitle: 'GST Registration & Return Filing Services Mumbai | Ambika Consultancy',
-    metaDescription: 'Professional GST services in Fort & Belapur Mumbai. New GST registration, GSTR-1, GSTR-3B, GSTR-9 annual filing, ITC reconciliation, and GST notice replies.',
+    metaDescription: 'Professional GST services in Fort & Ghatkopar Mumbai. New GST registration, GSTR-1, GSTR-3B, GSTR-9 annual filing, ITC reconciliation, and GST notice replies.',
     iconName: 'Building',
     commonProblems: [
       'Blocked Input Tax Credit due to supplier failure to file GSTR-1 (GSTR-2B mismatches).',
@@ -257,7 +257,7 @@ export const servicesData: ServiceCategory[] = [
         slug: 'gst-registration',
         title: 'GST Registration Services',
         shortDescription: 'Fast, hassle-free new GST registration, principal and additional place of business amendments, and core field updates.',
-        metaTitle: 'GST Registration in Fort & Belapur Mumbai | Ambika Consultancy',
+        metaTitle: 'GST Registration in Fort & Ghatkopar Mumbai | Ambika Consultancy',
         metaDescription: 'Get new GST registration in Mumbai for proprietorships, partnerships, LLPs, and private limited companies. Smooth application, physical verification support.',
         targetAudience: ['New startups and emerging businesses crossing statutory thresholds', 'Traders selling on Amazon, Flipkart, or e-commerce platforms', 'Companies opening branch offices in Maharashtra'],
         scopeOfWork: [
@@ -407,7 +407,7 @@ export const servicesData: ServiceCategory[] = [
     tagline: 'Meticulous financial record-keeping, balance sheet preparation, and statutory audit readiness.',
     description: 'Accurate books of accounts are the bedrock of sound financial decisions, bank loan sanctions, and regulatory peace of mind. Ambika Consultancy provides full outsourced bookkeeping, financial statements, and audit support.',
     metaTitle: 'Accounting, Bookkeeping & Audit Services Mumbai | Ambika Consultancy',
-    metaDescription: 'Professional bookkeeping, outsourced accounting, balance sheet & P&L preparation, and statutory audit support in Fort & Belapur, Mumbai.',
+    metaDescription: 'Professional bookkeeping, outsourced accounting, balance sheet & P&L preparation, and statutory audit support in Fort & Ghatkopar, Mumbai.',
     iconName: 'Calculator',
     commonProblems: [
       'Disorganized vouchers and backlogged transaction records creating year-end panic.',

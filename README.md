@@ -2,7 +2,7 @@
 
 # Ambika Consultancy — Chartered Accountant & Tax Advisory Website
 
-A modern, responsive web application for **Ambika Consultancy**, a Chartered Accountant and business consultancy firm led by **Dinesh H. Maurya** (Founder & Senior Tax Consultant), serving clients in Fort, Mumbai and CBD Belapur, Navi Mumbai.
+A modern, responsive web application for **Ambika Consultancy**, a Chartered Accountant and business consultancy firm led by **Dinesh H. Maurya** (Founder & Senior Tax Consultant), serving clients in Fort, Mumbai and Ghatkopar West, Mumbai.
 
 ---
 
@@ -22,7 +22,7 @@ A modern, responsive web application for **Ambika Consultancy**, a Chartered Acc
   - Consultation booking modal with instant confirmation.
   - Quick WhatsApp chat integration (`+91 93213 34335`).
   - Direct telephone links for Mumbai head office and mobile.
-- **Dual Office Accessibility**: Full address and interactive navigation details for Fort (Modi Street) and CBD Belapur offices.
+- **Dual Office Accessibility**: Full address and interactive navigation details for Fort (Modi Street) and Ghatkopar West offices.
 - **SEO & Performance Engineered**:
   - Semantic HTML5, JSON-LD structured data schema.
   - Dynamic page metadata and OpenGraph tags via react-helmet-async.
@@ -81,9 +81,9 @@ A modern, responsive web application for **Ambika Consultancy**, a Chartered Acc
 ## 📍 Office Locations
 
 - **Head Office**: 40/42, Modi Street, Office No. 14, 2nd Floor, Near CSMT & RBI, Fort, Mumbai - 400 001.
-- **Branch Office**: CBD Belapur, Navi Mumbai - 400 614.
-- **Phone**: +91 93213 34335 / 022-4002 1960
-- **Email**: ambika.consultancy@yahoo.co.in
+- **Branch Office**: Flat No.305, A Wing 3rd Floor, Neelkanthdhara Bldg, LBS Marg, Near Mukund Staff Vrindavan Soc, Ghatkopar West, Mumbai - 400086.
+- **Phone**: +91 93213 34335 / +91 79773 60617 / 022-6636 6240
+- **Email**: ambika.consultancy@yahoo.co.in / ambikasalestax@gmail.com
 
 ---
 

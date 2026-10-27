@@ -44,7 +44,6 @@ export const siteConfig = {
     contact: '/contact-chartered-accountant-mumbai',
     packages: '/compliance-packages',
     resources: '/resources',
-    mumbaiCa: '/chartered-accountant-mumbai',
     consultation: '/consultation',
     privacyPolicy: '/privacy-policy',
     terms: '/terms-and-conditions',
@@ -55,16 +54,16 @@ export const siteConfig = {
   contact: {
     primaryPhone: '+91 93213 34335',
     primaryPhoneRaw: '9321334335',
-    secondaryPhone: '+91 99870 77459',
-    secondaryPhoneRaw: '9987077459',
-    landline1: '022-4002 1960',
-    landline1Raw: '02240021960',
+    secondaryPhone: '+91 79773 60617',
+    secondaryPhoneRaw: '7977360617',
+    landline: '022-6636 6240',
+    landlineRaw: '02266366240',
     landline2: '022-6636 6240',
     landline2Raw: '02266366240',
     whatsappNumber: '919321334335',
     whatsappUrl: 'https://wa.me/919321334335?text=Hello%20Ambika%20Consultancy%2C%20I%20would%20like%20to%20enquire%20about%20your%20services',
     primaryEmail: 'ambika.consultancy@yahoo.co.in',
-    secondaryEmail: 'ambikasalestax@rediffmail.com',
+    secondaryEmail: 'ambikasalestax@gmail.com',
     workingHours: 'Monday to Saturday: 10:00 AM – 7:30 PM (Sunday Closed)',
   },
 
@@ -88,14 +87,14 @@ export const siteConfig = {
       notes: 'Conveniently situated in the historic financial center of South Mumbai, walking distance from CSMT and Churchgate stations.'
     },
     {
-      title: 'Branch / Residential Office (Navi Mumbai)',
-      badge: 'Navi Mumbai Liaison Office',
-      addressLine1: 'D-10, 1-2, Income Tax Colony, Sector 21-22',
-      addressLine2: 'C.B.D. Belapur',
-      city: 'Navi Mumbai',
-      pincode: '400 614',
-      mapsUrl: 'https://maps.google.com/?q=Income+Tax+Colony+Sector+21+22+CBD+Belapur+Navi+Mumbai',
-      notes: 'Serving clients, entrepreneurs, and residential taxpayers across Navi Mumbai, Vashi, and Belapur corridor.'
+      title: 'Branch Office (Ghatkopar West)',
+      badge: 'Ghatkopar Branch Office',
+      addressLine1: 'Flat No.305, A Wing 3rd Floor, Neelkanthdhara Bldg',
+      addressLine2: 'LBS Marg, Near Mukund Staff Vrindavan Soc, Ghatkopar West',
+      city: 'Mumbai',
+      pincode: '400086',
+      mapsUrl: 'https://maps.google.com/?q=Neelkanthdhara+Bldg+LBS+Marg+Ghatkopar+West+Mumbai+400086',
+      notes: 'Conveniently serving taxpayers, entrepreneurs, and business clients across Ghatkopar and Eastern Suburbs.'
     }
   ] as OfficeLocation[],
 

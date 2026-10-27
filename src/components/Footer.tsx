@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
               </Link>
 
               <p className="footer-desc">
-                Dedicated tax, GST, accounting, and business compliance advisory for individuals, emerging startups, and corporates in Mumbai and Navi Mumbai. Direct counsel from seasoned professional Dinesh H. Maurya.
+                Dedicated tax, GST, accounting, and business compliance advisory for individuals, emerging startups, and corporates in Mumbai and suburbs. Direct counsel from seasoned professional Dinesh H. Maurya.
               </p>
 
               {/* Consultant Trust Snippet */}
@@ -94,9 +94,6 @@ export const Footer: React.FC = () => {
                 </li>
                 <li className="footer-nav-item">
                   <Link to="/resources"><ChevronRight size={14} /> Knowledge & Guides</Link>
-                </li>
-                <li className="footer-nav-item">
-                  <Link to="/chartered-accountant-mumbai"><ChevronRight size={14} /> CA Fort & Mumbai Presence</Link>
                 </li>
                 <li className="footer-nav-item">
                   <Link to="/contact-chartered-accountant-mumbai"><ChevronRight size={14} /> Contact & Directions</Link>
@@ -164,9 +161,9 @@ export const Footer: React.FC = () => {
                   <Phone size={14} />
                   <span>Mobile: {siteConfig.contact.primaryPhone} / {siteConfig.contact.secondaryPhone}</span>
                 </a>
-                <a href={`tel:${siteConfig.contact.landline1Raw}`} className="footer-contact-link">
+                <a href={`tel:${siteConfig.contact.landline2Raw}`} className="footer-contact-link">
                   <Phone size={14} />
-                  <span>Landline: {siteConfig.contact.landline1} / {siteConfig.contact.landline2}</span>
+                  <span>Landline: {siteConfig.contact.landline2}</span>
                 </a>
                 <a href={`mailto:${siteConfig.contact.primaryEmail}`} className="footer-contact-link">
                   <Mail size={14} />

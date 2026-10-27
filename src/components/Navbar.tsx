@@ -40,11 +40,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile drawer on route change
+  // Close mobile drawer on route change & unlock body
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesAccordionOpen(false);
   }, [location.pathname]);
+
+  // Prevent background scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const getServiceIcon = (name: string) => {
     switch (name) {
@@ -94,9 +106,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             <Link 
               to="/contact-chartered-accountant-mumbai" 
               className="top-bar-badge"
-              title="View Fort & Belapur Office Locations"
+              title="View Fort & Ghatkopar Office Locations"
             >
-              <span>Fort & Belapur Offices</span>
+              <span>Fort & Ghatkopar Offices</span>
             </Link>
 
             {/* Social Media Handles (Extreme Right End) */}
@@ -195,14 +207,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link 
-                  to="/chartered-accountant-mumbai" 
-                  className={`nav-link ${location.pathname === '/chartered-accountant-mumbai' ? 'active' : ''}`}
-                >
-                  Mumbai CA
-                </Link>
-              </li>
 
               <li className="nav-item">
                 <Link 
@@ -323,9 +327,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           </Link>
           <Link to="/resources" className={`mobile-nav-link ${location.pathname.startsWith('/resources') ? 'active' : ''}`}>
             Knowledge Centre
-          </Link>
-          <Link to="/chartered-accountant-mumbai" className={`mobile-nav-link ${location.pathname === '/chartered-accountant-mumbai' ? 'active' : ''}`}>
-            Chartered Accountant Mumbai
           </Link>
           <Link to="/contact-chartered-accountant-mumbai" className={`mobile-nav-link ${location.pathname === '/contact-chartered-accountant-mumbai' ? 'active' : ''}`}>
             Contact Us

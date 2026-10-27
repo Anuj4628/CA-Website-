@@ -72,7 +72,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
   const homeFaqs = [
     {
       question: 'How do I schedule an initial consultation with Dinesh H. Maurya?',
-      answer: 'You can request an appointment using our online form, message us on WhatsApp at +91 93213 34335, or call our Fort office directly at 022-4002 1960. We offer both in-person meetings at our Modi Street, Fort and CBD Belapur offices, as well as phone and video reviews.'
+      answer: 'You can request an appointment using our online form, message us on WhatsApp at +91 93213 34335, or call our Fort office directly at 022-6636 6240. We offer both in-person meetings at our Modi Street, Fort and Ghatkopar West offices, as well as phone and video reviews.'
     },
     {
       question: 'What documents should I prepare before filing my Income Tax Return?',
@@ -84,7 +84,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
     },
     {
       question: 'Do you assist clients outside Mumbai?',
-      answer: 'Yes. While our primary offices are located in Fort (South Mumbai) and CBD Belapur (Navi Mumbai), we handle tax filings, GST compliance, and MCA registrations for clients across Maharashtra and India through secure electronic document exchange.'
+      answer: 'Yes. While our primary offices are located in Fort (South Mumbai) and Ghatkopar West (Mumbai), we handle tax filings, GST compliance, and MCA registrations for clients across Maharashtra and India through secure electronic document exchange.'
     },
     {
       question: 'How is the service scope and professional retainer confirmed?',
@@ -96,52 +96,52 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
     <div ref={containerRef} className="home-page">
       <SEOHead 
         title="Ambika Consultancy | CA, Accounting & Tax Consultants Mumbai"
-        description="Trusted Income Tax filing, GST compliance, Accounting, Audit, and Company Registration services in Fort, Mumbai and CBD Belapur. Direct advisory from Dinesh H. Maurya."
+        description="Trusted Income Tax filing, GST compliance, Accounting, Audit, and Company Registration services in Fort, Mumbai and Ghatkopar West. Direct advisory from Dinesh H. Maurya."
         canonicalPath="/"
       />
 
       {/* SECTION 1: NEW HERO SLIDER */}
       <HeroSlider onOpenConsultation={onOpenConsultation} />
 
-      {/* SECTION 2: PRINCIPAL CONSULTANT ADVISORY HERO (PRESERVED) */}
-      <section className="section" style={{ paddingTop: 'var(--space-2xl)', paddingBottom: 'var(--space-2xl)', backgroundColor: '#FFFFFF' }}>
+      {/* SECTION 2: PRINCIPAL CONSULTANT ADVISORY HERO */}
+      <section className="section hero-advisory-section">
         <div className="container">
-          <div className="grid-2" style={{ alignItems: 'center', gap: 'var(--space-2xl)' }}>
+          <div className="grid-2 hero-advisory-grid">
             {/* Left Column: Headlines & CTA */}
-            <div>
+            <div className="hero-advisory-content">
               <span data-animate="hero" className="section-tag section-tag-green">
                 Chartered Accountancy & Tax Advisory • Fort, Mumbai
               </span>
 
-              <h2 data-animate="hero" style={{ marginTop: 'var(--space-xs)', marginBottom: 'var(--space-md)', fontSize: '2.25rem', lineHeight: 1.25 }}>
+              <h2 data-animate="hero" className="hero-advisory-title">
                 Trusted Tax & Financial Advisory for Individuals and Businesses
               </h2>
 
-              <p data-animate="hero" style={{ fontSize: '1.05rem', color: 'var(--color-text-body)', lineHeight: 1.65, marginBottom: 'var(--space-xl)', maxWidth: '540px' }}>
+              <p data-animate="hero" className="hero-advisory-desc">
                 Personalized guidance for Income Tax, GST compliance, accounting, and corporate filings — led directly by senior consultant <strong style={{ color: 'var(--color-primary)' }}>Dinesh H. Maurya</strong> with precision, transparency, and care.
               </p>
 
-              <div data-animate="hero" style={{ display: 'flex', gap: 'var(--space-md)', flexWrap: 'wrap', marginBottom: 'var(--space-xl)' }}>
+              <div data-animate="hero" className="hero-advisory-actions">
                 <button 
                   type="button" 
                   onClick={onOpenConsultation}
-                  className="btn btn-primary btn-lg"
+                  className="btn btn-primary btn-lg hero-cta-btn"
                   id="btn-hero-consultation"
                 >
                   <span>Book a Consultation</span>
                   <ArrowRight size={16} />
                 </button>
 
-                <Link to="/services-chartered-accountant-mumbai" className="btn btn-secondary btn-lg">
+                <Link to="/services-chartered-accountant-mumbai" className="btn btn-secondary btn-lg hero-cta-btn">
                   Explore Services
                 </Link>
               </div>
 
               {/* Clean Trust Strip with Parrot Green Icons */}
-              <div data-animate="hero" className="trust-strip">
+              <div data-animate="hero" className="trust-strip hero-advisory-trust">
                 <span className="trust-item">
                   <CheckCircle2 size={16} />
-                  <span>Fort & Belapur Offices</span>
+                  <span>Fort & Ghatkopar Offices</span>
                 </span>
                 <span className="trust-item">
                   <CheckCircle2 size={16} />
@@ -159,38 +159,22 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
             </div>
 
             {/* Right Column: Natural Portrait Asset */}
-            <div data-animate="hero" style={{ display: 'flex', justifyContent: 'center' }}>
-              <div 
-                style={{
-                  position: 'relative',
-                  backgroundColor: 'var(--color-accent-green-pale)',
-                  borderRadius: 'var(--radius-lg)',
-                  border: '1px solid var(--color-border-green)',
-                  overflow: 'hidden',
-                  boxShadow: 'var(--shadow-card)',
-                  maxWidth: '420px',
-                  width: '100%'
-                }}
-              >
+            <div data-animate="hero" className="hero-advisory-image-wrap">
+              <div className="hero-advisory-card">
                 <img 
                   src={siteConfig.consultant.portraitUrl} 
                   alt={`${siteConfig.consultant.name} - Principal Consultant at Ambika Consultancy`}
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    objectFit: 'cover',
-                    display: 'block'
-                  }}
+                  className="hero-advisory-portrait"
                   width="420"
-                  height="520"
+                  height="490"
                 />
-                <div style={{ padding: '14px 18px', backgroundColor: '#FFFFFF', borderTop: '1px solid var(--color-border-green)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div className="hero-advisory-caption">
                   <div>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.9375rem', color: 'var(--color-primary)' }}>
+                    <div className="hero-advisory-name">
                       {siteConfig.consultant.name}
                     </div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
-                      Senior Tax Consultant & Financial Advisor
+                    <div className="hero-advisory-role">
+                      {siteConfig.consultant.title}
                     </div>
                   </div>
                   <span className="badge badge-green">Fort • Mumbai</span>
@@ -478,8 +462,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
                 desc: 'Your private financial books, corporate resolutions, and taxpayer credentials remain strictly guarded and confidential.'
               },
               {
-                title: 'Fort & Belapur Accessibility',
-                desc: 'Physical presence in South Mumbai’s financial district and Navi Mumbai’s corporate hub ensures easy accessibility.'
+                title: 'Fort & Ghatkopar Accessibility',
+                desc: 'Physical presence in South Mumbai’s financial district and Ghatkopar West ensures easy accessibility across Mumbai.'
               },
               {
                 title: 'Realistic Tax Planning',
@@ -636,11 +620,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
                   </div>
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                     <MapPin size={16} style={{ color: 'var(--color-accent-green)', flexShrink: 0, marginTop: '2px' }} />
-                    <span><strong>Belapur Branch:</strong> D-10, 1-2, Income Tax Colony, Sector 21-22, CBD Belapur, Navi Mumbai</span>
+                    <span><strong>Ghatkopar Branch:</strong> Flat No.305, A Wing 3rd Floor, Neelkanthdhara Bldg, LBS Marg, Near Mukund Staff Vrindavan Soc, Ghatkopar West, Mumbai - 400086</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <Phone size={16} style={{ color: 'var(--color-accent-green)', flexShrink: 0 }} />
-                    <span><strong>Tel:</strong> 022-4002 1960 • <strong>Mob:</strong> 93213 34335</span>
+                    <span><strong>Tel:</strong> 022-6636 6240 • <strong>Mob:</strong> 93213 34335</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <Clock size={16} style={{ color: 'var(--color-accent-green)', flexShrink: 0 }} />

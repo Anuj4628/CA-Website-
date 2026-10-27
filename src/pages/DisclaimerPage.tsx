@@ -17,7 +17,7 @@ export const DisclaimerPage: React.FC = () => {
           <Breadcrumbs items={[{ label: 'Disclaimer' }]} />
           <h1 style={{ marginTop: 'var(--space-sm)' }}>Professional Service Disclaimer</h1>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}>
-            Ambika Consultancy • Fort & Belapur, Mumbai
+            Ambika Consultancy • Fort & Ghatkopar, Mumbai
           </p>
         </div>
       </section>

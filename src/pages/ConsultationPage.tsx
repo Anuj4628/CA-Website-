@@ -23,7 +23,7 @@ export const ConsultationPage: React.FC = () => {
     <div ref={containerRef} className="consultation-page">
       <SEOHead 
         title="Book a Tax & CA Consultation in Mumbai | Ambika Consultancy"
-        description="Schedule a professional consultation with senior tax consultant Dinesh H. Maurya in Fort, Mumbai or CBD Belapur. Direct review of your tax filings, notices, and business books."
+        description="Schedule a professional consultation with senior tax consultant Dinesh H. Maurya in Fort, Mumbai or Ghatkopar West. Direct review of your tax filings, notices, and business books."
         canonicalPath="/consultation"
       />
 
@@ -37,7 +37,7 @@ export const ConsultationPage: React.FC = () => {
               Schedule a Professional Consultation
             </h1>
             <p style={{ fontSize: '1.125rem', color: 'var(--color-text-body)', maxWidth: '780px', lineHeight: 1.6 }}>
-              Direct access to senior consultant <strong>Dinesh H. Maurya</strong>. Choose between an in-person meeting at our Fort or Belapur offices, or a secure telephonic / remote document review.
+              Direct access to senior consultant <strong>Dinesh H. Maurya</strong>. Choose between an in-person meeting at our Fort or Ghatkopar offices, or a secure telephonic / remote document review.
             </p>
           </div>
         </div>
@@ -92,10 +92,10 @@ export const ConsultationPage: React.FC = () => {
                     <MapPin size={22} style={{ color: 'var(--color-accent-green-dark)', flexShrink: 0, marginTop: '2px' }} />
                     <div>
                       <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', color: 'var(--color-primary)' }}>
-                        In-Person Office Meeting (Fort or Belapur)
+                        In-Person Office Meeting (Fort or Ghatkopar)
                       </div>
                       <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', marginTop: '2px' }}>
-                        Meet Dinesh H. Maurya at our Modi Street, Fort office or CBD Belapur liaison office for in-depth document examination.
+                        Meet Dinesh H. Maurya at our Modi Street, Fort office or Ghatkopar West branch office for in-depth document examination.
                       </div>
                     </div>
                   </div>

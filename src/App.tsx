@@ -16,7 +16,6 @@ import { ConsultationPage } from './pages/ConsultationPage';
 import { PackagesPage } from './pages/PackagesPage';
 import { ResourcesPage } from './pages/ResourcesPage';
 import { ResourceDetailPage } from './pages/ResourceDetailPage';
-import { MumbaiCaPage } from './pages/MumbaiCaPage';
 import { ContactPage } from './pages/ContactPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsPage } from './pages/TermsPage';
@@ -66,7 +65,7 @@ export const App: React.FC = () => {
             <Route path="/consultation" element={<ConsultationPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/resources/:slug" element={<ResourceDetailPage onOpenConsultation={() => handleOpenConsultation('')} />} />
-            <Route path="/chartered-accountant-mumbai" element={<MumbaiCaPage onOpenConsultation={() => handleOpenConsultation('')} />} />
+            <Route path="/chartered-accountant-mumbai" element={<Navigate to="/" replace />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-and-conditions" element={<TermsPage />} />
             <Route path="/disclaimer" element={<DisclaimerPage />} />

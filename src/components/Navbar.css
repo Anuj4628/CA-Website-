@@ -484,13 +484,16 @@
 
 @media (max-width: 1040px) {
   .nav-menu {
-    display: none;
+    display: none !important;
   }
   .nav-phone-btn {
-    display: none;
+    display: none !important;
+  }
+  #btn-nav-book-consultation {
+    display: none !important;
   }
   .mobile-toggle-btn {
-    display: flex;
+    display: flex !important;
   }
   .top-bar-left,
   .top-bar-right {
@@ -505,47 +508,55 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 768px) {
   .top-bar {
-    padding: 8px 0;
+    display: none !important; /* Hide desktop top bar on mobile to eliminate overflow and ensure clean fixed navigation */
   }
-  .top-bar-container {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
+
+  .site-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 64px !important;
+    z-index: 1000 !important;
+    background-color: #FFFFFF !important;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.08) !important;
   }
-  .top-bar-left,
-  .top-bar-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px 12px;
+
+  .navbar {
+    height: 64px !important;
+    gap: 8px !important;
   }
-  .top-bar-left {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-bottom: 6px;
+
+  .nav-brand-logo {
+    height: 38px !important;
+    max-height: 38px !important;
+  }
+
+  .mobile-toggle-btn {
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border-radius: var(--radius-md);
+  }
+
+  .mobile-drawer {
+    width: 85%;
+    max-width: min(340px, 85vw);
   }
 }
 
-@media (max-width: 640px) {
-  .navbar {
-    height: 70px;
-  }
+@media (max-width: 360px) {
   .nav-brand-logo {
-    height: 42px;
+    height: 34px !important;
+    max-height: 34px !important;
   }
-  .top-bar-hours {
-    display: none; /* Keep address visible */
+  .navbar {
+    height: 60px !important;
   }
-  .top-bar-email {
-    display: none; /* Keep phone + office badge prominent for mobile calling */
-  }
-  .top-bar-left,
-  .top-bar-right {
-    justify-content: space-between;
-  }
-  .top-bar-item {
-    font-size: 0.725rem;
+  .site-header {
+    height: 60px !important;
   }
 }

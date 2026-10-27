@@ -319,6 +319,20 @@
   }
 }
 
+@media (max-width: 380px) {
+  .service-flip-card {
+    height: 390px;
+    min-height: 390px;
+  }
+  .service-flip-front-content,
+  .service-flip-card-back {
+    padding: 14px;
+  }
+  .service-flip-front-title {
+    font-size: 1.05rem;
+  }
+}
+
 /* Reduced Motion Preference */
 @media (prefers-reduced-motion: reduce) {
   .service-flip-card-inner {

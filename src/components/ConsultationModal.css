@@ -143,3 +143,22 @@
   max-width: 320px;
   margin: 0 auto;
 }
+
+@media (max-width: 640px) {
+  .modal-backdrop {
+    padding: 10px;
+  }
+  .modal-dialog {
+    max-height: 94vh;
+    border-radius: var(--radius-md);
+  }
+  .modal-header {
+    padding: var(--space-md);
+  }
+  .modal-body {
+    padding: var(--space-md);
+  }
+  .modal-title {
+    font-size: 1.1rem;
+  }
+}
